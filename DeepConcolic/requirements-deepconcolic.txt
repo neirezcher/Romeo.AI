@@ -17,3 +17,5 @@ menpo
 patool 
 z3-solver 
 pyvis
+pymongo
+python-dotenv

@@ -1,935 +1,0 @@
-Looking for plugins in `dc_plugins' directory                                   
-Found and registered plugin `dc_plugins.toy_datasets'                           
-Found and registered plugin `dc_plugins.toy_datasets.random'                    
-RNG seed: 2531126317
-Loading fashion_mnist dataset... done.
-Model: "sequential_1"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- conv2d_1 (Conv2D)           (None, 24, 24, 6)         156       
-                                                                 
- activation_1 (Activation)   (None, 24, 24, 6)         0         
-                                                                 
- flatten_1 (Flatten)         (None, 3456)              0         
-                                                                 
- dense_1 (Dense)             (None, 128)               442496    
-                                                                 
- activation_2 (Activation)   (None, 128)               0         
-                                                                 
- dense_2 (Dense)             (None, 64)                8256      
-                                                                 
- activation_3 (Activation)   (None, 64)                0         
-                                                                 
- dense_3 (Dense)             (None, 10)                650       
-                                                                 
- activation_4 (Activation)   (None, 10)                0         
-                                                                 
-=================================================================
-Total params: 451,558
-Trainable params: 451,558
-Non-trainable params: 0
-_________________________________________________________________
-Testable function layers: conv2d_1, dense_1, dense_2, dense_3
-DNN under test has 9 layer functions, 4 of which are to be covered:
-[conv2d_1, dense_1, dense_2, dense_3]
-
-Computing magnitude coefficients... done.
-[4.523175007487999, 1.3169033758312827, 1.0590457884164002, 0.4818550336216117]
-Starting tests for criterion NC with norm L0 (500 max iterations).              
-Reporting into: test/NC_L0-20230420-180550_report.txt                           
-Randomly selecting an input from test data.                                     
-Adding 1 test case                                                              #0 NC: 60.79825041%                                                             
-| Targeting activation of (2, 23, 4) in conv2d_1                                
-Adding 1 test case                                                              #1 NC: 61.26298524% with new test case at L0 distance 1: passed                 
-| Targeting activation of (0, 0, 4) in conv2d_1                                 
-Adding 1 test case                                                              #2 NC: 61.45434664% with new test case at L0 distance 1: passed                 
-| Targeting activation of (2, 18, 2) in conv2d_1                                
-Adding 1 test case                                                              #3 NC: 61.83706944% with new test case at L0 distance 1: passed                 
-| Targeting activation of (1, 7, 3) in conv2d_1                                 
-Adding 1 test case                                                              #4 NC: 62.11044286% with new test case at L0 distance 1: passed                 
-| Targeting activation of (2, 0, 1) in conv2d_1                                 
-Adding 1 test case                                                              #5 NC: 62.52050301% with new test case at L0 distance 1: passed                 
-| Targeting activation of (16, 6, 3) in conv2d_1                                
-Adding 1 test case                                                              #6 NC: 62.68452706% with new test case at L0 distance 1: passed                 
-| Targeting activation of (0, 1, 1) in conv2d_1                                 
-Adding 1 test case                                                              #7 NC: 63.03991252% with new test case at L0 distance 1: passed                 
-| Targeting activation of (13, 23, 3) in conv2d_1                               
-Adding 1 test case                                                              #8 NC: 63.06724986% with new test case at L0 distance 1: passed                 
-| Targeting activation of (0, 18, 4) in conv2d_1                                
-Adding 1 test case                                                              #9 NC: 63.25861126% with new test case at L0 distance 1: passed                 
-| Targeting activation of (14, 7, 4) in conv2d_1                                
-Adding 1 test case                                                              #10 NC: 63.47731001% with new test case at L0 distance 1: passed                
-| Targeting activation of (1, 23, 1) in conv2d_1                                
-Adding 1 test case                                                              #11 NC: 63.64133406% with new test case at L0 distance 1: passed                
-| Targeting activation of (12, 11, 3) in conv2d_1                               
-Adding 1 test case                                                              #12 NC: 63.83269546% with new test case at L0 distance 1: passed                
-| Targeting activation of (11, 8, 0) in conv2d_1                                
-Adding 1 test case                                                              #13 NC: 63.99671952% with new test case at L0 distance 1: passed                
-| Targeting activation of (0, 23, 1) in conv2d_1                                
-Adding 1 test case                                                              #14 NC: 64.02405686% with new test case at L0 distance 1: passed                
-| Targeting activation of (5, 5, 2) in conv2d_1                                 
-Adding 1 test case                                                              #15 NC: 64.37944232% with new test case at L0 distance 1: passed                
-| Targeting activation of (8, 16, 5) in conv2d_1                                
-Adding 1 test case                                                              #16 NC: 64.73482777% with new test case at L0 distance 1: passed                
-| Targeting activation of (15, 5, 1) in conv2d_1                                
-Adding 1 test case                                                              #17 NC: 64.92618917% with new test case at L0 distance 1: passed                
-| Targeting activation of (0, 17, 0) in conv2d_1                                
-Adding 1 test case                                                              #18 NC: 64.95352652% with new test case at L0 distance 1: passed                
-| Targeting activation of (14, 2, 3) in conv2d_1                                
-Adding 1 test case                                                              #19 NC: 65.25423729% with new test case at L0 distance 1: passed                
-| Targeting activation of (5, 13, 5) in conv2d_1                                
-Adding 1 test case                                                              #20 NC: 65.58228540% with new test case at L0 distance 1: passed                
-| Targeting activation of (4, 13, 1) in conv2d_1                                
-Adding 1 test case                                                              #21 NC: 65.66429743% with new test case at L0 distance 1: passed                
-| Targeting activation of (12, 21, 3) in conv2d_1                               
-Adding 1 test case                                                              #22 NC: 65.96500820% with new test case at L0 distance 1: passed                
-| Targeting activation of (20, 18, 2) in conv2d_1                               
-Adding 1 test case                                                              #23 NC: 66.29305631% with new test case at L0 distance 1: passed                
-| Targeting activation of (23, 17, 4) in conv2d_1                               
-Adding 1 test case                                                              #24 NC: 66.64844177% with new test case at L0 distance 1: passed                
-| Targeting activation of (10, 4, 3) in conv2d_1                                
-Adding 1 test case                                                              #25 NC: 66.81246583% with new test case at L0 distance 1: passed                
-| Targeting activation of (9, 5, 2) in conv2d_1                                 
-Adding 1 test case                                                              #26 NC: 66.94915254% with new test case at L0 distance 1: passed                
-| Targeting activation of (7, 6, 1) in conv2d_1                                 
-Adding 1 test case                                                              #27 NC: 67.11317660% with new test case at L0 distance 1: passed                
-| Targeting activation of (15, 9, 0) in conv2d_1                                
-Adding 1 test case                                                              #28 NC: 67.49589940% with new test case at L0 distance 1: passed                
-| Targeting activation of (6, 12, 2) in conv2d_1                                
-Adding 1 test case                                                              #29 NC: 67.65992346% with new test case at L0 distance 1: passed                
-| Targeting activation of (0, 3, 5) in conv2d_1                                 
-Adding 1 test case                                                              #30 NC: 67.93329688% with new test case at L0 distance 1: passed                
-| Targeting activation of (13, 17, 4) in conv2d_1                               
-Adding 1 test case                                                              #31 NC: 68.28868234% with new test case at L0 distance 1: passed                
-| Targeting activation of (0, 16, 5) in conv2d_1                                
-Adding 1 test case                                                              #32 NC: 68.34335703% with new test case at L0 distance 1: passed                
-| Targeting activation of (7, 17, 3) in conv2d_1                                
-Adding 1 test case                                                              #33 NC: 68.45270640% with new test case at L0 distance 1: passed                
-| Targeting activation of (4, 12, 3) in conv2d_1                                
-Adding 1 test case                                                              #34 NC: 68.56205577% with new test case at L0 distance 1: passed                
-| Targeting activation of (2, 12, 5) in conv2d_1                                
-Adding 1 test case                                                              #35 NC: 68.72607983% with new test case at L0 distance 1: passed                
-| Targeting activation of (9, 3, 4) in conv2d_1                                 
-Adding 1 test case                                                              #36 NC: 69.05412794% with new test case at L0 distance 1: passed                
-| Targeting activation of (7, 0, 1) in conv2d_1                                 
-Adding 1 test case                                                              #37 NC: 69.24548934% with new test case at L0 distance 1: passed                
-| Targeting activation of (19, 11, 4) in conv2d_1                               
-Adding 1 test case                                                              #38 NC: 69.54620011% with new test case at L0 distance 1: passed                
-| Targeting activation of (21, 4, 3) in conv2d_1                                
-Adding 1 test case                                                              #39 NC: 69.90158557% with new test case at L0 distance 1: passed                
-| Targeting activation of (22, 2, 5) in conv2d_1                                
-Adding 1 test case                                                              #40 NC: 70.09294697% with new test case at L0 distance 1: passed                
-| Targeting activation of (7, 10, 3) in conv2d_1                                
-Adding 1 test case                                                              #41 NC: 70.20229634% with new test case at L0 distance 1: passed                
-| Targeting activation of (10, 10, 0) in conv2d_1                               
-Adding 1 test case                                                              #42 NC: 70.28430837% with new test case at L0 distance 1: passed                
-| Targeting activation of (15, 22, 3) in conv2d_1                               
-Adding 1 test case                                                              #43 NC: 70.42099508% with new test case at L0 distance 1: passed                
-| Targeting activation of (15, 20, 3) in conv2d_1                               
-Adding 1 test case                                                              #44 NC: 70.44833242% with new test case at L0 distance 1: passed                
-| Targeting activation of (20, 0, 4) in conv2d_1                                
-Adding 1 test case                                                              #45 NC: 70.66703116% with new test case at L0 distance 1: passed                
-| Targeting activation of (4, 21, 4) in conv2d_1                                
-Adding 1 test case                                                              #46 NC: 71.21377802% with new test case at L0 distance 1: passed                
-| Targeting activation of (11, 2, 0) in conv2d_1                                
-Adding 1 test case                                                              #47 NC: 71.35046473% with new test case at L0 distance 1: passed                
-| Targeting activation of (9, 18, 0) in conv2d_1                                
-Adding 1 test case                                                              #48 NC: 71.40513942% with new test case at L0 distance 1: passed                
-| Targeting activation of (11, 15, 3) in conv2d_1                               
-Adding 1 test case                                                              #49 NC: 71.48715145% with new test case at L0 distance 1: passed                
-| Targeting activation of (9, 12, 3) in conv2d_1                                
-Adding 1 test case                                                              #50 NC: 71.54182613% with new test case at L0 distance 1: passed                
-| Targeting activation of (7, 12, 2) in conv2d_1                                
-Adding 1 test case                                                              #51 NC: 71.73318753% with new test case at L0 distance 1: passed                
-| Targeting activation of (9, 12, 2) in conv2d_1                                
-Adding 1 test case                                                              #52 NC: 71.84253691% with new test case at L0 distance 1: passed                
-| Targeting activation of (7, 9, 3) in conv2d_1                                 
-Adding 1 test case                                                              #53 NC: 71.89721159% with new test case at L0 distance 1: passed                
-| Targeting activation of (11, 11, 0) in conv2d_1                               
-Adding 1 test case                                                              #54 NC: 72.08857299% with new test case at L0 distance 1: passed                
-| Targeting activation of (10, 22, 3) in conv2d_1                               
-Adding 1 test case                                                              #55 NC: 72.17058502% with new test case at L0 distance 1: passed                
-| Targeting activation of (8, 15, 3) in conv2d_1                                
-Adding 1 test case                                                              #56 NC: 72.25259705% with new test case at L0 distance 1: passed                
-| Targeting activation of (6, 20, 2) in conv2d_1                                
-Adding 1 test case                                                              #57 NC: 72.36194642% with new test case at L0 distance 1: passed                
-| Targeting activation of (14, 0, 4) in conv2d_1                                
-Adding 1 test case                                                              #58 NC: 72.44395845% with new test case at L0 distance 1: passed                
-| Targeting activation of (2, 1, 3) in conv2d_1                                 
-Adding 1 test case                                                              #59 NC: 72.58064516% with new test case at L0 distance 1: passed                
-| Targeting activation of (6, 10, 0) in conv2d_1                                
-Adding 1 test case                                                              #60 NC: 72.68999453% with new test case at L0 distance 1: passed                
-| Targeting activation of (17, 1, 0) in conv2d_1                                
-Adding 1 test case                                                              #61 NC: 72.85401859% with new test case at L0 distance 1: passed                
-| Targeting activation of (2, 17, 5) in conv2d_1                                
-Adding 1 test case                                                              #62 NC: 72.99070530% with new test case at L0 distance 1: passed                
-| Targeting activation of (0, 20, 4) in conv2d_1                                
-Adding 1 test case                                                              #63 NC: 73.01804265% with new test case at L0 distance 1: passed                
-| Targeting activation of (7, 21, 0) in conv2d_1                                
-Adding 1 test case                                                              #64 NC: 73.20940405% with new test case at L0 distance 1: passed                
-| Targeting activation of (7, 19, 1) in conv2d_1                                
-Adding 1 test case                                                              #65 NC: 73.34609076% with new test case at L0 distance 1: passed                
-| Targeting activation of (11, 19, 5) in conv2d_1                               
-Adding 1 test case                                                              #66 NC: 73.51011482% with new test case at L0 distance 1: passed                
-| Targeting activation of (9, 23, 2) in conv2d_1                                
-Adding 1 test case                                                              #67 NC: 73.64680153% with new test case at L0 distance 1: passed                
-| Targeting activation of (11, 23, 3) in conv2d_1                               
-Adding 1 test case                                                              #68 NC: 73.70147622% with new test case at L0 distance 1: passed                
-| Targeting activation of (8, 18, 3) in conv2d_1                                
-Adding 1 test case                                                              #69 NC: 73.81082559% with new test case at L0 distance 1: passed                
-| Targeting activation of (7, 5, 2) in conv2d_1                                 
-Adding 1 test case                                                              #70 NC: 73.94751230% with new test case at L0 distance 1: passed                
-| Targeting activation of (7, 15, 4) in conv2d_1                                
-Adding 1 test case                                                              #71 NC: 74.11153636% with new test case at L0 distance 1: passed                
-| Targeting activation of (7, 15, 3) in conv2d_1                                
-Adding 1 test case                                                              #72 NC: 74.35757244% with new test case at L0 distance 1: passed                
-| Targeting activation of (18, 15, 4) in conv2d_1                               
-Adding 1 test case                                                              #73 NC: 74.49425916% with new test case at L0 distance 1: passed                
-| Targeting activation of (13, 22, 0) in conv2d_1                               
-Adding 1 test case                                                              #74 NC: 74.71295790% with new test case at L0 distance 1: passed                
-| Targeting activation of (15, 20, 4) in conv2d_1                               
-Adding 1 test case                                                              #75 NC: 74.90431930% with new test case at L0 distance 1: passed                
-| Targeting activation of (15, 19, 2) in conv2d_1                               
-Adding 1 test case                                                              #76 NC: 75.12301804% with new test case at L0 distance 1: passed                
-| Targeting activation of (13, 16, 0) in conv2d_1                               
-Adding 1 test case                                                              #77 NC: 75.28704210% with new test case at L0 distance 1: passed                
-| Targeting activation of (2, 1, 4) in conv2d_1                                 
-Adding 1 test case                                                              #78 NC: 75.34171679% with new test case at L0 distance 1: passed                
-| Targeting activation of (23, 13, 3) in conv2d_1                               
-Adding 1 test case                                                              #79 NC: 75.50574084% with new test case at L0 distance 1: passed                
-| Targeting activation of (9, 16, 0) in conv2d_1                                
-Adding 1 test case                                                              #80 NC: 75.58775287% with new test case at L0 distance 1: passed                
-| Targeting activation of (10, 22, 1) in conv2d_1                               
-#81 NC: 75.58775287% after failed attempt                                       
-| Targeting activation of (5, 22, 4) in conv2d_1                                
-Adding 1 test case                                                              #82 NC: 75.86112630% with new test case at L0 distance 1: passed                
-| Targeting activation of (4, 21, 3) in conv2d_1                                
-Adding 1 test case                                                              #83 NC: 75.97047567% with new test case at L0 distance 1: passed                
-| Targeting activation of (23, 11, 0) in conv2d_1                               
-Adding 1 test case                                                              #84 NC: 76.02515036% with new test case at L0 distance 1: passed                
-| Targeting activation of (23, 8, 0) in conv2d_1                                
-Adding 1 test case                                                              #85 NC: 76.07982504% with new test case at L0 distance 1: passed                
-| Targeting activation of (22, 23, 5) in conv2d_1                               
-Adding 1 test case                                                              #86 NC: 76.54455987% with new test case at L0 distance 1: passed                
-| Targeting activation of (23, 10, 1) in conv2d_1                               
-Adding 1 test case                                                              #87 NC: 76.59923455% with new test case at L0 distance 1: passed                
-| Targeting activation of (18, 22, 3) in conv2d_1                               
-Adding 1 test case                                                              #88 NC: 76.68124658% with new test case at L0 distance 1: passed                
-| Targeting activation of (16, 16, 1) in conv2d_1                               
-Adding 1 test case                                                              #89 NC: 77.11864407% with new test case at L0 distance 1: passed                
-| Targeting activation of (14, 3, 0) in conv2d_1                                
-Adding 1 test case                                                              #90 NC: 77.17331875% with new test case at L0 distance 1: passed                
-| Targeting activation of (16, 10, 1) in conv2d_1                               
-Adding 1 test case                                                              #91 NC: 77.41935484% with new test case at L0 distance 1: passed                
-| Targeting activation of (16, 8, 0) in conv2d_1                                
-Adding 1 test case                                                              #92 NC: 77.63805358% with new test case at L0 distance 1: passed                
-| Targeting activation of (18, 6, 4) in conv2d_1                                
-Adding 1 test case                                                              #93 NC: 77.72006561% with new test case at L0 distance 1: passed                
-| Targeting activation of (19, 0, 1) in conv2d_1                                
-Adding 1 test case                                                              #94 NC: 78.02077638% with new test case at L0 distance 1: passed                
-| Targeting activation of (18, 6, 2) in conv2d_1                                
-Adding 1 test case                                                              #95 NC: 78.07545107% with new test case at L0 distance 1: passed                
-| Targeting activation of (13, 18, 3) in conv2d_1                               
-Adding 1 test case                                                              #96 NC: 78.10278841% with new test case at L0 distance 1: passed                
-| Targeting activation of (20, 1, 3) in conv2d_1                                
-Adding 1 test case                                                              #97 NC: 78.26681247% with new test case at L0 distance 1: passed                
-| Targeting activation of (8, 9, 3) in conv2d_1                                 
-Adding 1 test case                                                              #98 NC: 78.29414981% with new test case at L0 distance 1: passed                
-| Targeting activation of (16, 23, 3) in conv2d_1                               
-Adding 1 test case                                                              #99 NC: 78.59486058% with new test case at L0 distance 1: passed                
-| Targeting activation of (21, 2, 3) in conv2d_1                                
-Adding 1 test case                                                              #100 NC: 78.64953527% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 3, 3) in conv2d_1                                
-Adding 1 test case                                                              #101 NC: 78.67687261% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 21, 1) in conv2d_1                               
-Adding 1 test case                                                              #102 NC: 78.73154729% with new test case at L0 distance 1: passed               
-| Targeting activation of (7, 0, 5) in conv2d_1                                 
-Adding 1 test case                                                              #103 NC: 79.00492072% with new test case at L0 distance 1: passed               
-| Targeting activation of (12, 3, 5) in conv2d_1                                
-Adding 1 test case                                                              #104 NC: 79.05959541% with new test case at L0 distance 1: passed               
-| Targeting activation of (9, 3, 0) in conv2d_1                                 
-Adding 1 test case                                                              #105 NC: 79.16894478% with new test case at L0 distance 1: passed               
-| Targeting activation of (10, 3, 0) in conv2d_1                                
-Adding 1 test case                                                              #106 NC: 79.25095681% with new test case at L0 distance 1: passed               
-| Targeting activation of (11, 2, 4) in conv2d_1                                
-Adding 1 test case                                                              #107 NC: 79.38764352% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 7, 3) in conv2d_1                                
-Adding 1 test case                                                              #108 NC: 79.63367961% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 10, 4) in conv2d_1                               
-Adding 1 test case                                                              #109 NC: 79.74302898% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 13, 2) in conv2d_1                                
-Adding 1 test case                                                              #110 NC: 79.77036632% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 19, 2) in conv2d_1                               
-Adding 1 test case                                                              #111 NC: 79.87971569% with new test case at L0 distance 1: passed               
-| Targeting activation of (12, 20, 1) in conv2d_1                               
-Adding 1 test case                                                              #112 NC: 80.09841443% with new test case at L0 distance 1: passed               
-| Targeting activation of (11, 20, 1) in conv2d_1                               
-Adding 1 test case                                                              #113 NC: 80.20776381% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 6, 0) in conv2d_1                                 
-Adding 1 test case                                                              #114 NC: 80.26243849% with new test case at L0 distance 1: passed               
-| Targeting activation of (3, 4, 3) in conv2d_1                                 
-Adding 1 test case                                                              #115 NC: 80.42646255% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 8, 3) in conv2d_1                                 
-Adding 1 test case                                                              #116 NC: 80.53581192% with new test case at L0 distance 1: passed               
-| Targeting activation of (9, 2, 5) in conv2d_1                                 
-Adding 1 test case                                                              #117 NC: 80.64516129% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 6, 4) in conv2d_1                                 
-Adding 1 test case                                                              #118 NC: 80.69983598% with new test case at L0 distance 1: passed               
-| Targeting activation of (5, 10, 0) in conv2d_1                                
-Adding 1 test case                                                              #119 NC: 80.91853472% with new test case at L0 distance 1: passed               
-| Targeting activation of (9, 7, 5) in conv2d_1                                 
-Adding 1 test case                                                              #120 NC: 80.97320940% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 6, 3) in conv2d_1                                 
-Adding 1 test case                                                              #121 NC: 81.10989612% with new test case at L0 distance 1: passed               
-| Targeting activation of (11, 9, 5) in conv2d_1                                
-Adding 1 test case                                                              #122 NC: 81.21924549% with new test case at L0 distance 1: passed               
-| Targeting activation of (11, 6, 5) in conv2d_1                                
-Adding 1 test case                                                              #123 NC: 81.30125752% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 7, 4) in conv2d_1                                 
-Adding 1 test case                                                              #124 NC: 81.43794423% with new test case at L0 distance 1: passed               
-| Targeting activation of (6, 7, 1) in conv2d_1                                 
-Adding 1 test case                                                              #125 NC: 81.62930563% with new test case at L0 distance 1: adversarial          
-| Targeting activation of (10, 6, 5) in conv2d_1                                
-Adding 1 test case                                                              #126 NC: 81.84800437% with new test case at L0 distance 2: adversarial          
-| Targeting activation of (7, 9, 0) in conv2d_1                                 
-Adding 1 test case                                                              #127 NC: 81.90267906% with new test case at L0 distance 1: adversarial          
-| Targeting activation of (19, 10, 1) in conv2d_1                               
-Adding 1 test case                                                              #128 NC: 82.12137780% with new test case at L0 distance 1: adversarial          
-| Targeting activation of (18, 15, 1) in conv2d_1                               
-Adding 1 test case                                                              #129 NC: 82.28540186% with new test case at L0 distance 1: passed               
-| Targeting activation of (18, 17, 5) in conv2d_1                               
-Adding 1 test case                                                              #130 NC: 82.34007654% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 16, 5) in conv2d_1                               
-Adding 1 test case                                                              #131 NC: 82.50410060% with new test case at L0 distance 1: passed               
-| Targeting activation of (17, 17, 5) in conv2d_1                               
-Adding 1 test case                                                              #132 NC: 82.55877529% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 18, 3) in conv2d_1                               
-Adding 1 test case                                                              #133 NC: 82.58611263% with new test case at L0 distance 1: adversarial          
-| Targeting activation of (18, 23, 2) in conv2d_1                               
-Adding 1 test case                                                              #134 NC: 82.64078732% with new test case at L0 distance 1: passed               
-| Targeting activation of (21, 23, 2) in conv2d_1                               
-Adding 1 test case                                                              #135 NC: 82.69546200% with new test case at L0 distance 1: passed               
-| Targeting activation of (21, 23, 1) in conv2d_1                               
-Adding 1 test case                                                              #136 NC: 82.75013669% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 23, 3) in conv2d_1                               
-Adding 1 test case                                                              #137 NC: 82.77747403% with new test case at L0 distance 1: passed               
-| Targeting activation of (5, 14, 2) in conv2d_1                                
-Adding 1 test case                                                              #138 NC: 82.83214872% with new test case at L0 distance 3: passed               
-| Targeting activation of (8, 13, 3) in conv2d_1                                
-Adding 1 test case                                                              #139 NC: 82.85948606% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 2, 0) in conv2d_1                                
-Adding 1 test case                                                              #140 NC: 82.88682340% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 0, 5) in conv2d_1                                
-Adding 1 test case                                                              #141 NC: 83.07818480% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 2, 3) in conv2d_1                                
-Adding 1 test case                                                              #142 NC: 83.13285949% with new test case at L0 distance 1: passed               
-| Targeting activation of (20, 1, 0) in conv2d_1                                
-Adding 1 test case                                                              #143 NC: 83.21487151% with new test case at L0 distance 1: passed               
-| Targeting activation of (7, 3, 0) in conv2d_1                                 
-Adding 1 test case                                                              #144 NC: 83.26954620% with new test case at L0 distance 1: passed               
-| Targeting activation of (11, 0, 5) in conv2d_1                                
-Adding 1 test case                                                              #145 NC: 83.35155823% with new test case at L0 distance 1: passed               
-| Targeting activation of (9, 0, 3) in conv2d_1                                 
-Adding 1 test case                                                              #146 NC: 83.46090760% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 0, 5) in conv2d_1                                
-Adding 1 test case                                                              #147 NC: 83.57025697% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 1, 5) in conv2d_1                                 
-Adding 1 test case                                                              #148 NC: 83.65226900% with new test case at L0 distance 1: passed               
-| Targeting activation of (7, 1, 5) in conv2d_1                                 
-Adding 1 test case                                                              #149 NC: 83.81629306% with new test case at L0 distance 1: passed               
-| Targeting activation of (16, 13, 0) in conv2d_1                               
-Adding 1 test case                                                              #150 NC: 83.92564243% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 14, 4) in conv2d_1                               
-Adding 1 test case                                                              #151 NC: 84.00765446% with new test case at L0 distance 1: passed               
-| Targeting activation of (17, 20, 1) in conv2d_1                               
-Adding 1 test case                                                              #152 NC: 84.06232914% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 13, 5) in conv2d_1                               
-Adding 1 test case                                                              #153 NC: 84.08966648% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 19, 0) in conv2d_1                               
-Adding 1 test case                                                              #154 NC: 84.17167851% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 20, 0) in conv2d_1                               
-Adding 1 test case                                                              #155 NC: 84.19901586% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 19, 3) in conv2d_1                               
-Adding 1 test case                                                              #156 NC: 84.36303991% with new test case at L0 distance 1: passed               
-| Targeting activation of (20, 21, 1) in conv2d_1                               
-Adding 1 test case                                                              #157 NC: 84.44505194% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 19, 3) in conv2d_1                               
-Adding 1 test case                                                              #158 NC: 84.47238928% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 21, 2) in conv2d_1                               
-Adding 1 test case                                                              #159 NC: 84.58173866% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 0, 0) in conv2d_1                                
-Adding 1 test case                                                              #160 NC: 84.63641334% with new test case at L0 distance 1: passed               
-| Targeting activation of (12, 4, 0) in conv2d_1                                
-Adding 1 test case                                                              #161 NC: 84.71842537% with new test case at L0 distance 1: passed               
-| Targeting activation of (1, 14, 2) in conv2d_1                                
-Adding 1 test case                                                              #162 NC: 84.80043740% with new test case at L0 distance 1: passed               
-| Targeting activation of (5, 13, 1) in conv2d_1                                
-Adding 1 test case                                                              #163 NC: 84.90978677% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 11, 5) in conv2d_1                               
-Adding 1 test case                                                              #164 NC: 84.96446145% with new test case at L0 distance 1: passed               
-| Targeting activation of (3, 20, 1) in conv2d_1                                
-Adding 1 test case                                                              #165 NC: 85.07381083% with new test case at L0 distance 1: passed               
-| Targeting activation of (6, 22, 3) in conv2d_1                                
-Adding 1 test case                                                              #166 NC: 85.18316020% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 23, 1) in conv2d_1                                
-Adding 1 test case                                                              #167 NC: 85.21049754% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 23, 4) in conv2d_1                                
-Adding 1 test case                                                              #168 NC: 85.37452160% with new test case at L0 distance 1: passed               
-| Targeting activation of (10, 23, 4) in conv2d_1                               
-Adding 1 test case                                                              #169 NC: 85.56588300% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 14, 5) in conv2d_1                               
-Adding 1 test case                                                              #170 NC: 85.62055768% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 14, 1) in conv2d_1                               
-Adding 1 test case                                                              #171 NC: 85.72990705% with new test case at L0 distance 1: passed               
-| Targeting activation of (16, 15, 5) in conv2d_1                               
-Adding 1 test case                                                              #172 NC: 85.89393111% with new test case at L0 distance 1: passed               
-| Targeting activation of (17, 14, 0) in conv2d_1                               
-Adding 1 test case                                                              #173 NC: 86.03061782% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 14, 0) in conv2d_1                               
-Adding 1 test case                                                              #174 NC: 86.19464188% with new test case at L0 distance 1: passed               
-| Targeting activation of (21, 11, 5) in conv2d_1                               
-Adding 1 test case                                                              #175 NC: 86.27665391% with new test case at L0 distance 1: passed               
-| Targeting activation of (17, 12, 1) in conv2d_1                               
-Adding 1 test case                                                              #176 NC: 86.46801531% with new test case at L0 distance 1: passed               
-| Targeting activation of (20, 11, 0) in conv2d_1                               
-Adding 1 test case                                                              #177 NC: 86.55002734% with new test case at L0 distance 1: passed               
-| Targeting activation of (20, 9, 5) in conv2d_1                                
-Adding 1 test case                                                              #178 NC: 86.71405139% with new test case at L0 distance 1: passed               
-| Targeting activation of (20, 9, 1) in conv2d_1                                
-Adding 1 test case                                                              #179 NC: 86.85073811% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 11, 0) in conv2d_1                               
-Adding 1 test case                                                              #180 NC: 86.98742482% with new test case at L0 distance 1: passed               
-| Targeting activation of (12, 14, 4) in conv2d_1                               
-Adding 1 test case                                                              #181 NC: 87.12411154% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 14, 2) in conv2d_1                                
-Adding 1 test case                                                              #182 NC: 87.31547294% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 15, 1) in conv2d_1                               
-Adding 1 test case                                                              #183 NC: 87.37014762% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 10, 3) in conv2d_1                               
-Adding 1 test case                                                              #184 NC: 87.39748496% with new test case at L0 distance 2: passed               
-| Targeting activation of (15, 21, 1) in conv2d_1                               
-Adding 1 test case                                                              #185 NC: 87.45215965% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 10, 5) in conv2d_1                               
-Adding 1 test case                                                              #186 NC: 87.56150902% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 14, 3) in conv2d_1                                
-Adding 1 test case                                                              #187 NC: 87.69819574% with new test case at L0 distance 1: passed               
-| Targeting activation of (6, 17, 3) in conv2d_1                                
-Adding 1 test case                                                              #188 NC: 87.78020776% with new test case at L0 distance 1: passed               
-| Targeting activation of (9, 18, 3) in conv2d_1                                
-Adding 1 test case                                                              #189 NC: 87.83488245% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 3, 3) in conv2d_1                                
-Adding 1 test case                                                              #190 NC: 87.86221979% with new test case at L0 distance 1: passed               
-| Targeting activation of (17, 6, 2) in conv2d_1                                
-Adding 1 test case                                                              #191 NC: 88.05358119% with new test case at L0 distance 1: passed               
-| Targeting activation of (18, 6, 5) in conv2d_1                                
-Adding 1 test case                                                              #192 NC: 88.24494259% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 5, 5) in conv2d_1                                
-Adding 1 test case                                                              #193 NC: 88.32695462% with new test case at L0 distance 1: passed               
-| Targeting activation of (18, 6, 3) in conv2d_1                                
-Adding 1 test case                                                              #194 NC: 88.38162931% with new test case at L0 distance 1: passed               
-| Targeting activation of (16, 6, 2) in conv2d_1                                
-Adding 1 test case                                                              #195 NC: 88.40896665% with new test case at L0 distance 1: passed               
-| Targeting activation of (16, 2, 0) in conv2d_1                                
-Adding 1 test case                                                              #196 NC: 88.54565336% with new test case at L0 distance 1: passed               
-| Targeting activation of (15, 2, 3) in conv2d_1                                
-Adding 1 test case                                                              #197 NC: 88.65500273% with new test case at L0 distance 1: passed               
-| Targeting activation of (15, 6, 2) in conv2d_1                                
-Adding 1 test case                                                              #198 NC: 88.79168945% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 2, 3) in conv2d_1                                
-Adding 1 test case                                                              #199 NC: 88.87370148% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 17, 3) in conv2d_1                                
-Adding 1 test case                                                              #200 NC: 88.98305085% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 22, 1) in conv2d_1                                
-Adding 1 test case                                                              #201 NC: 89.06506288% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 5, 3) in conv2d_1                                 
-Adding 1 test case                                                              #202 NC: 89.11973756% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 8, 3) in conv2d_1                                 
-Adding 1 test case                                                              #203 NC: 89.14707490% with new test case at L0 distance 1: passed               
-| Targeting activation of (11, 19, 2) in conv2d_1                               
-Adding 1 test case                                                              #204 NC: 89.20174959% with new test case at L0 distance 1: passed               
-| Targeting activation of (15, 19, 3) in conv2d_1                               
-Adding 1 test case                                                              #205 NC: 89.25642428% with new test case at L0 distance 1: passed               
-| Targeting activation of (5, 1, 5) in conv2d_1                                 
-Adding 1 test case                                                              #206 NC: 89.28376162% with new test case at L0 distance 1: passed               
-| Targeting activation of (11, 22, 5) in conv2d_1                               
-Adding 1 test case                                                              #207 NC: 89.39311099% with new test case at L0 distance 1: passed               
-| Targeting activation of (2, 5, 4) in conv2d_1                                 
-Adding 1 test case                                                              #208 NC: 89.42044833% with new test case at L0 distance 1: passed               
-| Targeting activation of (7, 1, 4) in conv2d_1                                 
-Adding 1 test case                                                              #209 NC: 89.44778568% with new test case at L0 distance 1: passed               
-| Targeting activation of (5, 2, 0) in conv2d_1                                 
-Adding 1 test case                                                              #210 NC: 89.52979770% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 15, 2) in conv2d_1                               
-Adding 1 test case                                                              #211 NC: 89.63914707% with new test case at L0 distance 1: passed               
-| Targeting activation of (20, 15, 2) in conv2d_1                               
-Adding 1 test case                                                              #212 NC: 89.69382176% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 15, 5) in conv2d_1                               
-Adding 1 test case                                                              #213 NC: 89.77583379% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 14, 5) in conv2d_1                               
-Adding 1 test case                                                              #214 NC: 89.83050847% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 12, 3) in conv2d_1                               
-Adding 1 test case                                                              #215 NC: 89.91252050% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 17, 3) in conv2d_1                               
-Adding 1 test case                                                              #216 NC: 90.04920722% with new test case at L0 distance 1: passed               
-| Targeting activation of (21, 21, 2) in conv2d_1                               
-Adding 1 test case                                                              #217 NC: 90.10388190% with new test case at L0 distance 1: passed               
-| Targeting activation of (21, 20, 3) in conv2d_1                               
-Adding 1 test case                                                              #218 NC: 90.15855659% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 20, 2) in conv2d_1                               
-Adding 1 test case                                                              #219 NC: 90.24056862% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 22, 3) in conv2d_1                               
-Adding 1 test case                                                              #220 NC: 90.26790596% with new test case at L0 distance 1: passed               
-| Targeting activation of (21, 18, 3) in conv2d_1                               
-Adding 1 test case                                                              #221 NC: 90.37725533% with new test case at L0 distance 1: passed               
-| Targeting activation of (1, 10, 2) in conv2d_1                                
-Adding 1 test case                                                              #222 NC: 90.48660470% with new test case at L0 distance 1: passed               
-| Targeting activation of (2, 11, 5) in conv2d_1                                
-Adding 1 test case                                                              #223 NC: 90.59595407% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 10, 2) in conv2d_1                                
-Adding 1 test case                                                              #224 NC: 90.65062876% with new test case at L0 distance 1: passed               
-| Targeting activation of (6, 10, 5) in conv2d_1                                
-Adding 1 test case                                                              #225 NC: 90.70530344% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 13, 2) in conv2d_1                                
-Adding 1 test case                                                              #226 NC: 90.75997813% with new test case at L0 distance 1: passed               
-| Targeting activation of (17, 5, 2) in conv2d_1                                
-Adding 1 test case                                                              #227 NC: 90.78731547% with new test case at L0 distance 1: passed               
-| Targeting activation of (12, 0, 4) in conv2d_1                                
-Adding 1 test case                                                              #228 NC: 90.81465282% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 1, 5) in conv2d_1                                
-Adding 1 test case                                                              #229 NC: 91.00601422% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 1, 4) in conv2d_1                                
-Adding 1 test case                                                              #230 NC: 91.17003827% with new test case at L0 distance 1: passed               
-| Targeting activation of (16, 0, 3) in conv2d_1                                
-Adding 1 test case                                                              #231 NC: 91.27938764% with new test case at L0 distance 1: passed               
-| Targeting activation of (15, 0, 4) in conv2d_1                                
-Adding 1 test case                                                              #232 NC: 91.30672499% with new test case at L0 distance 1: passed               
-| Targeting activation of (18, 20, 2) in conv2d_1                               
-Adding 1 test case                                                              #233 NC: 91.33406233% with new test case at L0 distance 1: passed               
-| Targeting activation of (21, 9, 2) in conv2d_1                                
-Adding 1 test case                                                              #234 NC: 91.38873701% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 9, 5) in conv2d_1                                
-Adding 1 test case                                                              #235 NC: 91.49808639% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 9, 1) in conv2d_1                                
-Adding 1 test case                                                              #236 NC: 91.63477310% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 9, 2) in conv2d_1                                
-Adding 1 test case                                                              #237 NC: 91.68944779% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 10, 5) in conv2d_1                               
-Adding 1 test case                                                              #238 NC: 91.74412247% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 20, 3) in conv2d_1                               
-Adding 1 test case                                                              #239 NC: 91.79879716% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 4, 5) in conv2d_1                                
-Adding 1 test case                                                              #240 NC: 91.82613450% with new test case at L0 distance 1: passed               
-| Targeting activation of (1, 20, 4) in conv2d_1                                
-#241 NC: 91.82613450% after failed attempt                                      
-| Targeting activation of (1, 20, 4) in conv2d_1                                
-Adding 1 test case                                                              #242 NC: 91.88080919% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 16, 2) in conv2d_1                                
-Adding 1 test case                                                              #243 NC: 91.99015856% with new test case at L0 distance 1: passed               
-| Targeting activation of (5, 19, 1) in conv2d_1                                
-Adding 1 test case                                                              #244 NC: 92.04483324% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 19, 3) in conv2d_1                                
-Adding 1 test case                                                              #245 NC: 92.09950793% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 22, 2) in conv2d_1                                
-Adding 1 test case                                                              #246 NC: 92.20885730% with new test case at L0 distance 1: passed               
-| Targeting activation of (6, 23, 5) in conv2d_1                                
-Adding 1 test case                                                              #247 NC: 92.23619464% with new test case at L0 distance 1: passed               
-| Targeting activation of (7, 23, 1) in conv2d_1                                
-Adding 1 test case                                                              #248 NC: 92.29086933% with new test case at L0 distance 1: passed               
-| Targeting activation of (10, 22, 1) in conv2d_1                               
-Adding 1 test case                                                              #249 NC: 92.37288136% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 0, 4) in conv2d_1                                 
-Adding 1 test case                                                              #250 NC: 92.40021870% with new test case at L0 distance 1: passed               
-| Targeting activation of (3, 16, 4) in conv2d_1                                
-Adding 1 test case                                                              #251 NC: 92.48223073% with new test case at L0 distance 1: passed               
-| Targeting activation of (2, 12, 0) in conv2d_1                                
-Adding 1 test case                                                              #252 NC: 92.53690541% with new test case at L0 distance 1: passed               
-| Targeting activation of (2, 9, 2) in conv2d_1                                 
-Adding 1 test case                                                              #253 NC: 92.59158010% with new test case at L0 distance 1: passed               
-| Targeting activation of (5, 9, 0) in conv2d_1                                 
-Adding 1 test case                                                              #254 NC: 92.61891744% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 16, 0) in conv2d_1                                
-Adding 1 test case                                                              #255 NC: 92.70092947% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 14, 1) in conv2d_1                                
-Adding 1 test case                                                              #256 NC: 92.75560416% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 14, 2) in conv2d_1                                
-Adding 1 test case                                                              #257 NC: 92.81027884% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 16, 3) in conv2d_1                               
-Adding 1 test case                                                              #258 NC: 92.86495353% with new test case at L0 distance 1: passed               
-| Targeting activation of (21, 15, 5) in conv2d_1                               
-#259 NC: 92.86495353% after failed attempt                                      
-| Targeting activation of (21, 15, 5) in conv2d_1                               
-Adding 1 test case                                                              #260 NC: 92.91962821% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 9, 3) in conv2d_1                                
-Adding 1 test case                                                              #261 NC: 92.94696555% with new test case at L0 distance 1: passed               
-| Targeting activation of (1, 5, 4) in conv2d_1                                 
-Adding 1 test case                                                              #262 NC: 93.02897758% with new test case at L0 distance 1: passed               
-| Targeting activation of (1, 6, 4) in conv2d_1                                 
-Adding 1 test case                                                              #263 NC: 93.08365227% with new test case at L0 distance 1: passed               
-| Targeting activation of (2, 5, 5) in conv2d_1                                 
-Adding 1 test case                                                              #264 NC: 93.11098961% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 17, 0) in conv2d_1                               
-Adding 1 test case                                                              #265 NC: 93.13832695% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 10, 5) in conv2d_1                               
-Adding 1 test case                                                              #266 NC: 93.16566430% with new test case at L0 distance 1: passed               
-| Targeting activation of (2, 15, 2) in conv2d_1                                
-Adding 1 test case                                                              #267 NC: 93.19300164% with new test case at L0 distance 1: passed               
-| Targeting activation of (1, 15, 2) in conv2d_1                                
-Adding 1 test case                                                              #268 NC: 93.22033898% with new test case at L0 distance 1: passed               
-| Targeting activation of (15, 23, 1) in conv2d_1                               
-Adding 1 test case                                                              #269 NC: 93.32968835% with new test case at L0 distance 1: passed               
-| Targeting activation of (15, 23, 2) in conv2d_1                               
-Adding 1 test case                                                              #270 NC: 93.35702570% with new test case at L0 distance 1: passed               
-| Targeting activation of (15, 23, 5) in conv2d_1                               
-Adding 1 test case                                                              #271 NC: 93.49371241% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 23, 5) in conv2d_1                               
-Adding 1 test case                                                              #272 NC: 93.52104975% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 22, 2) in conv2d_1                               
-Adding 1 test case                                                              #273 NC: 93.65773647% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 22, 2) in conv2d_1                               
-Adding 1 test case                                                              #274 NC: 93.68507381% with new test case at L0 distance 1: passed               
-| Targeting activation of (7, 19, 5) in conv2d_1                                
-Adding 1 test case                                                              #275 NC: 93.73974850% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 16, 4) in conv2d_1                                
-Adding 1 test case                                                              #276 NC: 93.90377255% with new test case at L0 distance 1: passed               
-| Targeting activation of (3, 15, 5) in conv2d_1                                
-Adding 1 test case                                                              #277 NC: 93.93110990% with new test case at L0 distance 1: passed               
-| Targeting activation of (6, 16, 5) in conv2d_1                                
-Adding 1 test case                                                              #278 NC: 93.95844724% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 20, 1) in conv2d_1                                
-Adding 1 test case                                                              #279 NC: 94.09513395% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 15, 5) in conv2d_1                                
-Adding 1 test case                                                              #280 NC: 94.12247130% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 16, 4) in conv2d_1                                
-Adding 1 test case                                                              #281 NC: 94.14980864% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 6, 1) in conv2d_1                                
-Adding 1 test case                                                              #282 NC: 94.23182067% with new test case at L0 distance 1: passed               
-| Targeting activation of (15, 6, 5) in conv2d_1                                
-Adding 1 test case                                                              #283 NC: 94.28649535% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 6, 2) in conv2d_1                                
-Adding 1 test case                                                              #284 NC: 94.34117004% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 6, 5) in conv2d_1                                
-Adding 1 test case                                                              #285 NC: 94.36850738% with new test case at L0 distance 1: passed               
-| Targeting activation of (17, 9, 5) in conv2d_1                                
-Adding 1 test case                                                              #286 NC: 94.42318207% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 7, 3) in conv2d_1                                
-Adding 1 test case                                                              #287 NC: 94.45051941% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 8, 3) in conv2d_1                                
-Adding 1 test case                                                              #288 NC: 94.50519410% with new test case at L0 distance 1: passed               
-| Targeting activation of (9, 21, 3) in conv2d_1                                
-Adding 1 test case                                                              #289 NC: 94.55986878% with new test case at L0 distance 1: passed               
-| Targeting activation of (15, 18, 3) in conv2d_1                               
-Adding 1 test case                                                              #290 NC: 94.58720612% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 2, 4) in conv2d_1                                
-Adding 1 test case                                                              #291 NC: 94.61454347% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 2, 5) in conv2d_1                                
-Adding 1 test case                                                              #292 NC: 94.69655549% with new test case at L0 distance 1: passed               
-| Targeting activation of (1, 3, 3) in conv2d_1                                 
-Adding 1 test case                                                              #293 NC: 94.75123018% with new test case at L0 distance 3: passed               
-| Targeting activation of (4, 1, 5) in conv2d_1                                 
-Adding 1 test case                                                              #294 NC: 94.80590487% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 5, 5) in conv2d_1                                 
-Adding 1 test case                                                              #295 NC: 94.83324221% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 5, 3) in conv2d_1                                 
-#296 NC: 94.83324221% after failed attempt                                      
-| Targeting activation of (17, 15, 2) in conv2d_1                               
-Adding 1 test case                                                              #297 NC: 94.86057955% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 5, 3) in conv2d_1                                 
-Adding 1 test case                                                              #298 NC: 94.88791689% with new test case at L0 distance 1: passed               
-| Targeting activation of (20, 2, 4) in conv2d_1                                
-Adding 1 test case                                                              #299 NC: 94.91525424% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 4, 0) in conv2d_1                                
-Adding 1 test case                                                              #300 NC: 94.94259158% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 5, 2) in conv2d_1                                
-Adding 1 test case                                                              #301 NC: 94.99726627% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 5, 5) in conv2d_1                                
-Adding 1 test case                                                              #302 NC: 95.13395298% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 5, 5) in conv2d_1                                
-Adding 1 test case                                                              #303 NC: 95.18862767% with new test case at L0 distance 1: passed               
-| Targeting activation of (20, 5, 2) in conv2d_1                                
-Adding 1 test case                                                              #304 NC: 95.21596501% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 5, 2) in conv2d_1                                
-Adding 1 test case                                                              #305 NC: 95.27063969% with new test case at L0 distance 1: passed               
-| Targeting activation of (21, 5, 2) in conv2d_1                                
-Adding 1 test case                                                              #306 NC: 95.32531438% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 5, 2) in conv2d_1                                
-Adding 1 test case                                                              #307 NC: 95.37998907% with new test case at L0 distance 1: passed               
-| Targeting activation of (1, 6, 3) in conv2d_1                                 
-Adding 1 test case                                                              #308 NC: 95.40732641% with new test case at L0 distance 1: passed               
-| Targeting activation of (2, 10, 5) in conv2d_1                                
-Adding 1 test case                                                              #309 NC: 95.46200109% with new test case at L0 distance 1: passed               
-| Targeting activation of (5, 10, 5) in conv2d_1                                
-Adding 1 test case                                                              #310 NC: 95.48933844% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 10, 5) in conv2d_1                                
-Adding 1 test case                                                              #311 NC: 95.51667578% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 6, 5) in conv2d_1                                 
-Adding 1 test case                                                              #312 NC: 95.54401312% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 13, 2) in conv2d_1                               
-Adding 1 test case                                                              #313 NC: 95.57135046% with new test case at L0 distance 1: passed               
-| Targeting activation of (3, 21, 1) in conv2d_1                                
-Adding 1 test case                                                              #314 NC: 95.62602515% with new test case at L0 distance 2: passed               
-| Targeting activation of (2, 20, 2) in conv2d_1                                
-Adding 1 test case                                                              #315 NC: 95.68069984% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 10, 3) in conv2d_1                               
-Adding 1 test case                                                              #316 NC: 95.70803718% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 11, 3) in conv2d_1                               
-Adding 1 test case                                                              #317 NC: 95.73537452% with new test case at L0 distance 1: passed               
-| Targeting activation of (19, 3, 0) in conv2d_1                                
-Adding 1 test case                                                              #318 NC: 95.81738655% with new test case at L0 distance 1: passed               
-| Targeting activation of (3, 10, 5) in conv2d_1                                
-Adding 1 test case                                                              #319 NC: 95.89939858% with new test case at L0 distance 1: passed               
-| Targeting activation of (10, 6, 2) in conv2d_1                                
-Adding 1 test case                                                              #320 NC: 95.92673592% with new test case at L0 distance 1: passed               
-| Targeting activation of (7, 7, 5) in conv2d_1                                 
-Adding 1 test case                                                              #321 NC: 95.95407326% with new test case at L0 distance 2: passed               
-| Targeting activation of (8, 5, 2) in conv2d_1                                 
-Adding 1 test case                                                              #322 NC: 95.98141061% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 20, 3) in conv2d_1                                
-Adding 1 test case                                                              #323 NC: 96.00874795% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 7, 3) in conv2d_1                                 
-Adding 1 test case                                                              #324 NC: 96.06342264% with new test case at L0 distance 1: passed               
-| Targeting activation of (12, 13, 5) in conv2d_1                               
-Adding 1 test case                                                              #325 NC: 96.09075998% with new test case at L0 distance 1: passed               
-| Targeting activation of (10, 13, 1) in conv2d_1                               
-Adding 1 test case                                                              #326 NC: 96.11809732% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 12, 3) in conv2d_1                               
-Adding 1 test case                                                              #327 NC: 96.17277201% with new test case at L0 distance 1: passed               
-| Targeting activation of (12, 12, 3) in conv2d_1                               
-Adding 1 test case                                                              #328 NC: 96.20010935% with new test case at L0 distance 1: passed               
-| Targeting activation of (14, 14, 2) in conv2d_1                               
-Adding 1 test case                                                              #329 NC: 96.28212138% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 14, 2) in conv2d_1                               
-Adding 1 test case                                                              #330 NC: 96.41880809% with new test case at L0 distance 1: passed               
-| Targeting activation of (11, 13, 2) in conv2d_1                               
-Adding 1 test case                                                              #331 NC: 96.47348278% with new test case at L0 distance 1: passed               
-| Targeting activation of (12, 14, 3) in conv2d_1                               
-Adding 1 test case                                                              #332 NC: 96.52815746% with new test case at L0 distance 1: passed               
-| Targeting activation of (12, 17, 2) in conv2d_1                               
-Adding 1 test case                                                              #333 NC: 96.58283215% with new test case at L0 distance 3: passed               
-| Targeting activation of (14, 18, 3) in conv2d_1                               
-Adding 1 test case                                                              #334 NC: 96.63750683% with new test case at L0 distance 1: passed               
-| Targeting activation of (15, 16, 5) in conv2d_1                               
-Adding 1 test case                                                              #335 NC: 96.66484418% with new test case at L0 distance 1: passed               
-| Targeting activation of (9, 13, 2) in conv2d_1                                
-Adding 1 test case                                                              #336 NC: 96.69218152% with new test case at L0 distance 1: passed               
-| Targeting activation of (5, 22, 1) in conv2d_1                                
-Adding 1 test case                                                              #337 NC: 96.71951886% with new test case at L0 distance 2: passed               
-| Targeting activation of (10, 10, 5) in conv2d_1                               
-Adding 1 test case                                                              #338 NC: 96.74685621% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 8, 4) in conv2d_1                                 
-Adding 1 test case                                                              #339 NC: 96.77419355% with new test case at L0 distance 1: passed               
-| Targeting activation of (10, 14, 2) in conv2d_1                               
-Adding 1 test case                                                              #340 NC: 96.80153089% with new test case at L0 distance 1: passed               
-| Targeting activation of (11, 14, 5) in conv2d_1                               
-#341 NC: 96.80153089% after failed attempt                                      
-| Targeting activation of (20, 1, 4) in conv2d_1                                
-Adding 1 test case                                                              #342 NC: 96.82886823% with new test case at L0 distance 1: passed               
-| Targeting activation of (11, 14, 5) in conv2d_1                               
-Adding 1 test case                                                              #343 NC: 96.85620558% with new test case at L0 distance 1: passed               
-| Targeting activation of (12, 14, 5) in conv2d_1                               
-Adding 1 test case                                                              #344 NC: 96.88354292% with new test case at L0 distance 1: passed               
-| Targeting activation of (17, 1, 5) in conv2d_1                                
-Adding 1 test case                                                              #345 NC: 96.91088026% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 2, 4) in conv2d_1                                
-Adding 1 test case                                                              #346 NC: 96.93821761% with new test case at L0 distance 3: passed               
-| Targeting activation of (9, 0, 0) in conv2d_1                                 
-Adding 1 test case                                                              #347 NC: 96.96555495% with new test case at L0 distance 1: passed               
-| Targeting activation of (5, 4, 3) in conv2d_1                                 
-Adding 1 test case                                                              #348 NC: 96.99289229% with new test case at L0 distance 2: passed               
-| Targeting activation of (5, 3, 3) in conv2d_1                                 
-Adding 1 test case                                                              #349 NC: 97.02022963% with new test case at L0 distance 1: passed               
-| Targeting activation of (5, 2, 3) in conv2d_1                                 
-Adding 1 test case                                                              #350 NC: 97.04756698% with new test case at L0 distance 1: passed               
-| Targeting activation of (3, 5, 5) in conv2d_1                                 
-Adding 1 test case                                                              #351 NC: 97.07490432% with new test case at L0 distance 1: passed               
-| Targeting activation of (6, 3, 0) in conv2d_1                                 
-Adding 1 test case                                                              #352 NC: 97.12957900% with new test case at L0 distance 1: passed               
-| Targeting activation of (2, 14, 3) in conv2d_1                                
-Adding 1 test case                                                              #353 NC: 97.15691635% with new test case at L0 distance 1: passed               
-| Targeting activation of (2, 16, 5) in conv2d_1                                
-Adding 1 test case                                                              #354 NC: 97.18425369% with new test case at L0 distance 1: passed               
-| Targeting activation of (0, 16, 1) in conv2d_1                                
-Adding 1 test case                                                              #355 NC: 97.21159103% with new test case at L0 distance 1: passed               
-| Targeting activation of (2, 15, 5) in conv2d_1                                
-Adding 1 test case                                                              #356 NC: 97.23892838% with new test case at L0 distance 1: passed               
-| Targeting activation of (1, 15, 5) in conv2d_1                                
-Adding 1 test case                                                              #357 NC: 97.26626572% with new test case at L0 distance 3: passed               
-| Targeting activation of (17, 14, 5) in conv2d_1                               
-Adding 1 test case                                                              #358 NC: 97.34827775% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 22, 5) in conv2d_1                                
-Adding 1 test case                                                              #359 NC: 97.37561509% with new test case at L0 distance 4: passed               
-| Targeting activation of (6, 2, 3) in conv2d_1                                 
-Adding 1 test case                                                              #360 NC: 97.43028978% with new test case at L0 distance 2: passed               
-| Targeting activation of (16, 6, 5) in conv2d_1                                
-Adding 1 test case                                                              #361 NC: 97.45762712% with new test case at L0 distance 2: passed               
-| Targeting activation of (0, 19, 3) in conv2d_1                                
-Adding 1 test case                                                              #362 NC: 97.51230180% with new test case at L0 distance 2: passed               
-| Targeting activation of (12, 13, 2) in conv2d_1                               
-Adding 1 test case                                                              #363 NC: 97.53963915% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 13, 2) in conv2d_1                               
-Adding 1 test case                                                              #364 NC: 97.56697649% with new test case at L0 distance 1: adversarial          
-| Targeting activation of (12, 10, 4) in conv2d_1                               
-Adding 1 test case                                                              #365 NC: 97.59431383% with new test case at L0 distance 1: adversarial          
-| Targeting activation of (11, 10, 5) in conv2d_1                               
-Adding 1 test case                                                              #366 NC: 97.62165118% with new test case at L0 distance 3: passed               
-| Targeting activation of (12, 9, 2) in conv2d_1                                
-Adding 1 test case                                                              #367 NC: 97.64898852% with new test case at L0 distance 2: adversarial          
-| Targeting activation of (13, 9, 5) in conv2d_1                                
-Adding 1 test case                                                              #368 NC: 97.70366320% with new test case at L0 distance 3: adversarial          
-| Targeting activation of (6, 3, 3) in conv2d_1                                 
-Adding 1 test case                                                              #369 NC: 97.73100055% with new test case at L0 distance 2: passed               
-| Targeting activation of (18, 13, 3) in conv2d_1                               
-Adding 1 test case                                                              #370 NC: 97.75833789% with new test case at L0 distance 2: passed               
-| Targeting activation of (18, 1, 4) in conv2d_1                                
-Adding 1 test case                                                              #371 NC: 97.78567523% with new test case at L0 distance 1: passed               
-| Targeting activation of (3, 17, 3) in conv2d_1                                
-Adding 1 test case                                                              #372 NC: 97.86768726% with new test case at L0 distance 2: passed               
-| Targeting activation of (23, 21, 3) in conv2d_1                               
-Adding 1 test case                                                              #373 NC: 97.89502460% with new test case at L0 distance 2: passed               
-| Targeting activation of (22, 22, 2) in conv2d_1                               
-Adding 1 test case                                                              #374 NC: 97.92236195% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 22, 2) in conv2d_1                               
-Adding 1 test case                                                              #375 NC: 97.94969929% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 23, 1) in conv2d_1                               
-Adding 1 test case                                                              #376 NC: 97.97703663% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 23, 2) in conv2d_1                               
-Adding 1 test case                                                              #377 NC: 98.00437397% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 23, 2) in conv2d_1                               
-Adding 1 test case                                                              #378 NC: 98.03171132% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 21, 3) in conv2d_1                               
-Adding 1 test case                                                              #379 NC: 98.05904866% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 17, 0) in conv2d_1                               
-Adding 1 test case                                                              #380 NC: 98.08638600% with new test case at L0 distance 3: passed               
-| Targeting activation of (22, 14, 1) in conv2d_1                               
-Adding 1 test case                                                              #381 NC: 98.11372335% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 14, 1) in conv2d_1                               
-Adding 1 test case                                                              #382 NC: 98.14106069% with new test case at L0 distance 1: passed               
-| Targeting activation of (22, 14, 2) in conv2d_1                               
-Adding 1 test case                                                              #383 NC: 98.19573537% with new test case at L0 distance 1: passed               
-| Targeting activation of (1, 5, 0) in conv2d_1                                 
-Adding 1 test case                                                              #384 NC: 98.22307272% with new test case at L0 distance 2: passed               
-| Targeting activation of (22, 1, 3) in conv2d_1                                
-Adding 1 test case                                                              #385 NC: 98.25041006% with new test case at L0 distance 4: passed               
-| Targeting activation of (22, 1, 5) in conv2d_1                                
-Adding 1 test case                                                              #386 NC: 98.30508475% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 1, 3) in conv2d_1                                
-Adding 1 test case                                                              #387 NC: 98.33242209% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 1, 0) in conv2d_1                                
-Adding 1 test case                                                              #388 NC: 98.35975943% with new test case at L0 distance 1: passed               
-| Targeting activation of (23, 0, 3) in conv2d_1                                
-Adding 1 test case                                                              #389 NC: 98.38709677% with new test case at L0 distance 1: adversarial          
-| Targeting activation of (23, 19, 0) in conv2d_1                               
-Adding 1 test case                                                              #390 NC: 98.44177146% with new test case at L0 distance 1: passed               
-| Targeting activation of (3, 12, 3) in conv2d_1                                
-Adding 1 test case                                                              #391 NC: 98.46910880% with new test case at L0 distance 3: adversarial          
-| Targeting activation of (3, 10, 3) in conv2d_1                                
-#392 NC: 98.46910880% after failed attempt                                      
-| Targeting activation of (3, 11, 3) in conv2d_1                                
-Adding 1 test case                                                              #393 NC: 98.52378349% with new test case at L0 distance 6: passed               
-| Targeting activation of (5, 13, 2) in conv2d_1                                
-Adding 1 test case                                                              #394 NC: 98.55112083% with new test case at L0 distance 1: passed               
-| Targeting activation of (4, 13, 2) in conv2d_1                                
-Adding 1 test case                                                              #395 NC: 98.60579552% with new test case at L0 distance 1: adversarial          
-| Targeting activation of (17, 23, 1) in conv2d_1                               
-Adding 1 test case                                                              #396 NC: 98.66047020% with new test case at L0 distance 2: passed               
-| Targeting activation of (17, 22, 2) in conv2d_1                               
-Adding 1 test case                                                              #397 NC: 98.68780755% with new test case at L0 distance 1: passed               
-| Targeting activation of (16, 23, 1) in conv2d_1                               
-Adding 1 test case                                                              #398 NC: 98.71514489% with new test case at L0 distance 1: passed               
-| Targeting activation of (13, 1, 0) in conv2d_1                                
-#399 NC: 98.71514489% after failed attempt                                      
-| Targeting activation of (13, 1, 0) in conv2d_1                                
-#400 NC: 98.71514489% after failed attempt                                      
-| Targeting activation of (13, 1, 0) in conv2d_1                                
-Adding 1 test case                                                              #401 NC: 98.74248223% with new test case at L0 distance 2: passed               
-| Targeting activation of (15, 16, 0) in conv2d_1                               
-Adding 1 test case                                                              #402 NC: 98.76981957% with new test case at L0 distance 2: passed               
-| Targeting activation of (4, 2, 3) in conv2d_1                                 
-Adding 1 test case                                                              #403 NC: 98.82449426% with new test case at L0 distance 3: passed               
-| Targeting activation of (4, 1, 3) in conv2d_1                                 
-#404 NC: 98.82449426% after failed attempt                                      
-| Targeting activation of (4, 1, 3) in conv2d_1                                 
-#405 NC: 98.82449426% after failed attempt                                      
-| Targeting activation of (4, 1, 3) in conv2d_1                                 
-Adding 1 test case                                                              #406 NC: 98.85183160% with new test case at L0 distance 3: adversarial          
-| Targeting activation of (23, 7, 0) in conv2d_1                                
-Adding 1 test case                                                              #407 NC: 98.87916894% with new test case at L0 distance 2: adversarial          
-| Targeting activation of (8, 19, 2) in conv2d_1                                
-Adding 1 test case                                                              #408 NC: 98.93384363% with new test case at L0 distance 7: passed               
-| Targeting activation of (9, 19, 2) in conv2d_1                                
-Adding 1 test case                                                              #409 NC: 98.96118097% with new test case at L0 distance 1: passed               
-| Targeting activation of (7, 19, 2) in conv2d_1                                
-Adding 1 test case                                                              #410 NC: 98.98851832% with new test case at L0 distance 1: passed               
-| Targeting activation of (8, 6, 2) in conv2d_1                                 
-#411 NC: 98.98851832% after failed attempt                                      
-| Targeting activation of (8, 6, 2) in conv2d_1                                 
-#412 NC: 98.98851832% after failed attempt                                      
-| Targeting activation of (8, 6, 2) in conv2d_1                                 
-Adding 1 test case                                                              #413 NC: 99.01585566% with new test case at L0 distance 4: passed               
-| Targeting activation of 79 in dense_1                                         
-Adding 1 test case                                                              #414 NC: 99.04319300% with new test case at L0 distance 2: adversarial          
-| Targeting activation of 68 in dense_1                                         
-Adding 1 test case                                                              #415 NC: 99.07053034% with new test case at L0 distance 11: passed              
-| Targeting activation of 127 in dense_1                                        
-Adding 1 test case                                                              #416 NC: 99.12520503% with new test case at L0 distance 9: passed               
-| Targeting activation of 33 in dense_1                                         
-Adding 1 test case                                                              #417 NC: 99.15254237% with new test case at L0 distance 8: adversarial          
-| Targeting activation of 75 in dense_1                                         
-Adding 1 test case                                                              #418 NC: 99.17987972% with new test case at L0 distance 7: passed               
-| Targeting activation of 119 in dense_1                                        
-Adding 1 test case                                                              #419 NC: 99.20721706% with new test case at L0 distance 4: passed               
-| Targeting activation of 100 in dense_1                                        
-Adding 1 test case                                                              #420 NC: 99.23455440% with new test case at L0 distance 9: adversarial          
-| Targeting activation of 77 in dense_1                                         
-Adding 1 test case                                                              #421 NC: 99.31656643% with new test case at L0 distance 7: adversarial          
-| Targeting activation of 20 in dense_1                                         
-Adding 1 test case                                                              #422 NC: 99.34390377% with new test case at L0 distance 15: adversarial         
-| Targeting activation of 16 in dense_1                                         
-Adding 1 test case                                                              #423 NC: 99.37124112% with new test case at L0 distance 12: adversarial         
-| Targeting activation of 104 in dense_1                                        
-Adding 1 test case                                                              #424 NC: 99.39857846% with new test case at L0 distance 10: adversarial         
-| Targeting activation of 112 in dense_1                                        
-Adding 1 test case                                                              #425 NC: 99.42591580% with new test case at L0 distance 17: adversarial         
-| Targeting activation of 67 in dense_1                                         
-Adding 1 test case                                                              #426 NC: 99.45325314% with new test case at L0 distance 12: adversarial         
-| Targeting activation of 39 in dense_1                                         
-Adding 1 test case                                                              #427 NC: 99.48059049% with new test case at L0 distance 10: passed              
-| Targeting activation of 29 in dense_1                                         
-Adding 1 test case                                                              #428 NC: 99.50792783% with new test case at L0 distance 13: passed              
-| Targeting activation of 54 in dense_1                                         
-Adding 1 test case                                                              #429 NC: 99.53526517% with new test case at L0 distance 5: passed               
-| Targeting activation of 47 in dense_1                                         
-Adding 1 test case                                                              #430 NC: 99.56260252% with new test case at L0 distance 11: passed              
-| Targeting activation of 58 in dense_1                                         
-Adding 1 test case                                                              #431 NC: 99.58993986% with new test case at L0 distance 13: passed              
-| Targeting activation of 12 in dense_1                                         
-Adding 1 test case                                                              #432 NC: 99.61727720% with new test case at L0 distance 14: adversarial         
-| Targeting activation of 125 in dense_1                                        
-Adding 1 test case                                                              #433 NC: 99.64461454% with new test case at L0 distance 11: adversarial         
-| Targeting activation of 14 in dense_1                                         
-Adding 1 test case                                                              #434 NC: 99.67195189% with new test case at L0 distance 10: passed              
-| Targeting activation of 99 in dense_1                                         
-Adding 1 test case                                                              #435 NC: 99.69928923% with new test case at L0 distance 14: passed              
-| Targeting activation of 76 in dense_1                                         
-Adding 1 test case                                                              #436 NC: 99.72662657% with new test case at L0 distance 12: adversarial         
-| Targeting activation of 74 in dense_1                                         
-Adding 1 test case                                                              #437 NC: 99.75396391% with new test case at L0 distance 20: adversarial         
-| Targeting activation of 30 in dense_1                                         
-Adding 1 test case                                                              #438 NC: 99.78130126% with new test case at L0 distance 24: adversarial         
-| Targeting activation of 69 in dense_1                                         
-Adding 1 test case                                                              #439 NC: 99.80863860% with new test case at L0 distance 26: passed              
-| Targeting activation of 60 in dense_2                                         
-Adding 1 test case                                                              #440 NC: 99.83597594% with new test case at L0 distance 4: adversarial          
-| Targeting activation of 28 in dense_2                                         
-Adding 1 test case                                                              #441 NC: 99.86331329% with new test case at L0 distance 7: adversarial          
-| Targeting activation of 49 in dense_2                                         
-Adding 1 test case                                                              #442 NC: 99.89065063% with new test case at L0 distance 14: passed              
-| Targeting activation of 34 in dense_2                                         
-Adding 1 test case                                                              #443 NC: 99.91798797% with new test case at L0 distance 30: adversarial         
-| Targeting activation of 63 in dense_2                                         
-Adding 1 test case                                                              #444 NC: 99.94532531% with new test case at L0 distance 37: passed              
-| Targeting activation of 5 in dense_3                                          
-Adding 1 test case                                                              #445 NC: 99.97266266% with new test case at L0 distance 7: passed               
-| Targeting activation of 7 in dense_3                                          
-Adding 1 test case                                                              #446 NC: 100.00000000% with new test case at L0 distance 17: adversarial        
-Terminating after 446 iterations: 434 tests generated, 32 of which are adversarial.
