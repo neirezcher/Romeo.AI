@@ -1,0 +1,15 @@
+adversarials: []
+norm: L0
+passed_tests:
+- index: 0
+  label: 1
+  md5: 6013486af5f692cce7f057b72fe44604
+  root_index: 0
+- gen_test_id: 0
+  index: 1
+  label: 1
+  md5: 84ef4ce64c7caa0b75fb4e0fe841a773
+  origin_dist: 20.0
+  origin_index: 0
+  root_dist: 20.0
+  root_index: 0

@@ -1,0 +1,50 @@
+Looking for plugins in `dc_plugins' directory                                   
+Found and registered plugin `dc_plugins.toy_datasets'                           
+Found and registered plugin `dc_plugins.toy_datasets.random'                    
+RNG seed: 2951857251
+Loading fashion_mnist dataset... done.
+Model: "sequential_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_1 (Conv2D)           (None, 24, 24, 6)         156       
+                                                                 
+ activation_1 (Activation)   (None, 24, 24, 6)         0         
+                                                                 
+ flatten_1 (Flatten)         (None, 3456)              0         
+                                                                 
+ dense_1 (Dense)             (None, 128)               442496    
+                                                                 
+ activation_2 (Activation)   (None, 128)               0         
+                                                                 
+ dense_2 (Dense)             (None, 64)                8256      
+                                                                 
+ activation_3 (Activation)   (None, 64)                0         
+                                                                 
+ dense_3 (Dense)             (None, 10)                650       
+                                                                 
+ activation_4 (Activation)   (None, 10)                0         
+                                                                 
+=================================================================
+Total params: 451,558
+Trainable params: 451,558
+Non-trainable params: 0
+_________________________________________________________________
+Testable function layers: conv2d_1, activation_1, flatten_1, dense_1, activation_2, dense_2, activation_3, dense_3, activation_4
+Using binarizer for layer conv2d_1                                              
+Using binarizer for layer activation_1                                          
+Using binarizer for layer flatten_1                                             
+Using binarizer for layer dense_1                                               
+Using binarizer for layer activation_2                                          
+Using binarizer for layer dense_2                                               
+Using binarizer for layer activation_3                                          
+Using binarizer for layer dense_3                                               
+Using binarizer for layer activation_4                                          
+DNN under test has 9 layer functions, 9 of which are to be covered:
+[conv2d_1, activation_1, flatten_1, dense_1, activation_2, dense_2, activation_3, dense_3, activation_4]
+
+Abstracted layers: conv2d_1, activation_1, flatten_1, dense_1, activation_2, dense_2, activation_3, dense_3, activation_4
+Computing Bayesian Network abstraction... 
+| Given 30000 classified training sample                                        
+| Extracting features for layer conv2d_1...                                     
+Extracting features...                                                          

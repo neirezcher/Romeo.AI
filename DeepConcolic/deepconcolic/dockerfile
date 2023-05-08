@@ -1,0 +1,44 @@
+#This will use the Anaconda3 image  and install Python 3.7 using conda. 
+FROM continuumio/anaconda3:latest
+
+# Create a new Anaconda environment with Python 3.7 and activate it
+SHELL ["/bin/bash","--login", "-c"]
+
+
+RUN conda create --name deepconcolic python=3.7.16
+RUN conda init bash
+SHELL ["conda", "run", "-n", "deepconcolic", "/bin/bash", "-c"]
+RUN echo "conda activate deepconcolic" >> ~/.bashrc
+#RUN conda run --name deepconcolic
+#RUN /bin/bash -c "source activate deepconcolic"
+
+
+ENV PATH /opt/conda/envs/deepconcolic/bin:$PATH
+#old version
+#RUN apt-get update \
+    #&& apt-get install -y --no-install-recommends libgl1-mesa-glx \
+    #&& rm -rf /var/lib/apt/lists/*
+
+# Install required packages using Conda and Pip
+RUN pip install opencv-python-headless
+RUN conda install -y -c conda-forge opencv nltk matplotlib && \
+    conda install -c pytorch -y torchvision
+# Set the working directory
+WORKDIR /app
+
+# Copy the app files into the container
+COPY . /app
+
+# Create a directory inside the app directory of the container
+RUN mkdir /saved_Models
+
+RUN apt-get update && apt-get install -y gfortran
+RUN apt-get install -y build-essential python3-dev python3-numpy
+
+
+
+RUN pip3 install -r requirements-deepconcolic.txt
+# Expose the port used by the app
+EXPOSE 8080
+# Set the command to run the app and pass it arguments and the file uploaded
+ENTRYPOINT ["conda","run","--capture-output","-n","deepconcolic","python", "main.py"]

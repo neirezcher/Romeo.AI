@@ -47,15 +47,26 @@
             </div>
             <div class="card-body px-lg-5 py-lg-5">
 
-              <form role="form" method="post" action="">
-
+              <form role="form" method="post" action="{{ url_for('home_blueprint.check_Model') }}" enctype="multipart/form-data">
+                {{ form.csrf_token }}
                 {{ form.hidden_tag() }}
 
                 <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
+                      
                     </div>
-                    {{ form.model(class="form-control") }}
+                    {% if form.model.errors %}
+                      {{ form.model(class="form-control form-control-lg is-invalid") }}
+                      <div class="invalid-feedback">
+                      {% for error in form.model.errors %}
+                        <span>{{ error }}</span>
+                      {% endfor %}
+                      </div>
+                      {% else %}
+    {{ form.model(class="form-control", placeholder="Enter Your Model", )}}
+    {% endif %}
+                    <!--{{ form.model(class="form-control") }}-->
                   </div>
                 </div>
                 <div class="form-group">
@@ -79,16 +90,8 @@
                     {{ form.norm(class="form-control") }}
                   </div>
                 </div>
-                <div class="form-group">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                    </div>
-                    {{ form.iteration(placeholder="number of iteration",class="form-control",type="number") }}
-                  </div>
-                </div>
                 <div class="text-center">
-                  <button type="submit" name="checker" class="btn btn-primary my-4">Run</button>
+                  {{ form.submit(class="btn btn-primary my-4") }}
                 </div>
               </form>
             </div>

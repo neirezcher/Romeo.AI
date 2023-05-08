@@ -143,7 +143,13 @@ def deepconcolic(criterion, norm, test_object, report_args,
 
 
 def main():
+  cuurrentdir=os.getcwd()
+  # Path 
+  path = os.path.join(cuurrentdir, "/outputs") 
+    
+  # Create the directory 
 
+  os.mkdir(path)
   parser = argparse.ArgumentParser \
     (description = 'Concolic testing for Neural Networks',
      prog = 'python3 -m deepconcolic.main',
@@ -152,7 +158,7 @@ def main():
                       help="selected dataset", choices=datasets.choices)
   parser.add_argument ('--model', required = True,
                        help = 'the input neural network model (.h5 file or "vgg16")')
-  parser.add_argument("--outputs", dest="outputs", required = True,
+  parser.add_argument("--outputs", dest="outputs", required = False,
                       help="the output test data directory", metavar="DIR")
   # parser.add_argument("--training-data", dest="training_data", default="-1",
   #                     help="the extra training dataset", metavar="DIR")
@@ -218,7 +224,15 @@ def main():
   parser.add_argument('--user-email', metavar = 'String', type = str, action='store')
 
   args = parser.parse_args ()
-  for i in range(34):
+  if args.criterion =='nc':
+    numbinteration=34
+  elif args.criterion== 'bfc':
+    numbinteration=501
+  else:
+    numbinteration=3
+  
+
+  for i in range(numbinteration):
     # Initialize with random seed first, if given:
     try: rng_seed (args.rng_seed)
     except ValueError as e:
@@ -315,7 +329,7 @@ def main():
       sys.exit (f'BN abstraction file `{args.dbnc_abstr}\' missing')
 
     deepconcolic (args.criterion, args.norm, test_object,
-                  report_args = { 'outdir': OutputDir (args.outputs, log = True),
+                  report_args = { 'outdir': OutputDir (path, log = True),
                                   'save_new_tests': args.save_all_tests,
                                   'save_input_func': save_input,
                                   'amplify_diffs': amplify_diffs },
@@ -330,9 +344,9 @@ def main():
                   initial_test_cases = init_tests,
                   max_iterations = max_iterations)
   if args.criterion =='nc':
-    df,defect_class=yml_Data_extracting(args.outputs,args.criterion)
+    df,defect_class=yml_Data_extracting(path,args.criterion)
   else: 
-    df,defect_class=picture_Data_extracting(args.outputs,args.criterion, args.norm)
+    df,defect_class=picture_Data_extracting(path,args.criterion, args.norm)
   dict_,robustByClass,heatmap,dnn_robust=robustness(df,10)
   if args.criterion =='nc':
     mongosave(args.user_email,dnn_robust,dnn_robust,None,None,robustByClass,heatmap,args.norm,args.dataset, args.model,args.criterion)
@@ -341,6 +355,7 @@ def main():
   else:
     mongosave(args.user_email,dnn_robust,None,None,dnn_robust,robustByClass,heatmap,args.norm,args.dataset, args.model,args.criterion)
   sendMail(args.user_email)
+  os.remove(path)
 
 if __name__=="__main__":
   try:

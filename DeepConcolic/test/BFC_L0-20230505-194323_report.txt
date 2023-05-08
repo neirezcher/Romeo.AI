@@ -1,0 +1,8 @@
+BFC-cover: 0.5 #test cases: 1 #adversarial examples: 0
+BFC-cover: 0.5 #test cases: 1 #adversarial examples: 0 #diff: _ #layer: 0 #feat: 0 #part: 1
+BFC-cover: 0.5 #test cases: 1 #adversarial examples: 0 #diff: _ #layer: 0 #feat: 1 #part: 0
+BFC-cover: 0.9166666666666666 #test cases: 2 #adversarial examples: 0 #diff: 20 #layer: 1 #feat: 0 #part: 0
+BFC-cover: 0.9166666666666666 #test cases: 2 #adversarial examples: 0 #diff: _ #layer: 0 #feat: 0 #part: 1
+BFC-cover: 0.9166666666666666 #test cases: 2 #adversarial examples: 0 #diff: _ #layer: 0 #feat: 1 #part: 0
+BFC-cover: 0.9166666666666666 #test cases: 2 #adversarial examples: 0 #diff: _ #layer: 1 #feat: 1 #part: 0
+BFC-cover: 0.9166666666666666 #test cases: 2 #adversarial examples: 0 #diff: _ #layer: 1 #feat: 1 #part: 0

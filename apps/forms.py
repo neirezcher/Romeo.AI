@@ -2,9 +2,10 @@
 
 
 from flask_wtf import FlaskForm
-from wtforms import TextField, PasswordField, SelectField, SelectMultipleField, IntegerField
+from wtforms import TextField, PasswordField, SelectField, SelectMultipleField, IntegerField,SubmitField
 from wtforms.validators import Email, DataRequired, Regexp, NumberRange,EqualTo
-from flask_wtf.file import FileField
+
+from flask_wtf.file import FileField, FileAllowed, FileRequired
 
 # login and registration
 
@@ -35,7 +36,8 @@ class CreateAccountForm(FlaskForm):
 
 class RunChecker(FlaskForm):
     
-    model = FileField('Model', validators=[DataRequired(),Regexp(u'^.*\.h5$', message = 'Only h5 files are allowed')])
+    model = FileField('Model', validators=[FileRequired()])
+        #FileAllowed(['h5'], 'h5 files only!')''''''
     dataset = SelectField('Dataset',
                          id='dataset_run',
                          validators=[DataRequired()],
@@ -55,6 +57,4 @@ class RunChecker(FlaskForm):
                          validators=[DataRequired()],
                          choices=[("l0","L0"),
                                   ("linf","Linfini")])
-    iteration= IntegerField ('Number of iterations', validators=[DataRequired(),NumberRange(min=10, max=1000)])
-    
-    
+    submit = SubmitField(label="run")

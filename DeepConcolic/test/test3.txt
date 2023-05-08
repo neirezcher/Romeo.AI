@@ -1,0 +1,302 @@
+Looking for plugins in `dc_plugins' directory                                   
+Found and registered plugin `dc_plugins.toy_datasets'                           
+Found and registered plugin `dc_plugins.toy_datasets.random'                    
+RNG seed: 252089489
+Loading fashion_mnist dataset... done.
+Model: "sequential_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_1 (Conv2D)           (None, 24, 24, 6)         156       
+                                                                 
+ activation_1 (Activation)   (None, 24, 24, 6)         0         
+                                                                 
+ flatten_1 (Flatten)         (None, 3456)              0         
+                                                                 
+ dense_1 (Dense)             (None, 128)               442496    
+                                                                 
+ activation_2 (Activation)   (None, 128)               0         
+                                                                 
+ dense_2 (Dense)             (None, 64)                8256      
+                                                                 
+ activation_3 (Activation)   (None, 64)                0         
+                                                                 
+ dense_3 (Dense)             (None, 10)                650       
+                                                                 
+ activation_4 (Activation)   (None, 10)                0         
+                                                                 
+=================================================================
+Total params: 451,558
+Trainable params: 451,558
+Non-trainable params: 0
+_________________________________________________________________
+Testable function layers: conv2d_1, activation_1, flatten_1, dense_1, activation_2, dense_2, activation_3, dense_3, activation_4
+Using binarizer for layer conv2d_1                                              
+Using binarizer for layer activation_1                                          
+Using binarizer for layer flatten_1                                             
+Using binarizer for layer dense_1                                               
+Using binarizer for layer activation_2                                          
+Using binarizer for layer dense_2                                               
+Using binarizer for layer activation_3                                          
+Using binarizer for layer dense_3                                               
+Using binarizer for layer activation_4                                          
+DNN under test has 9 layer functions, 9 of which are to be covered:
+[conv2d_1, activation_1, flatten_1, dense_1, activation_2, dense_2, activation_3, dense_3, activation_4]
+
+Abstracted layers: conv2d_1, activation_1, flatten_1, dense_1, activation_2, dense_2, activation_3, dense_3, activation_4
+Computing Bayesian Network abstraction... 
+| Given 30000 classified training sample                                        
+| Extracting features for layer conv2d_1...                                     
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer conv2d_1...                                   
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer activation_1...                                 
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer activation_1...                               
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer flatten_1...                                    
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer flatten_1...                                  
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer dense_1...                                      
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer dense_1...                                    
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer activation_2...                                 
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer activation_2...                               
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer dense_2...                                      
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer dense_2...                                    
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer activation_3...                                 
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer activation_3...                               
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer dense_3...                                      
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer dense_3...                                    
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer activation_4...                                 
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer activation_4...                               
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Captured variance ratio for layer conv2d_1 is 24.13%                          
+| Captured variance ratio for layer activation_1 is 22.68%                      
+| Captured variance ratio for layer flatten_1 is 22.68%                         
+| Captured variance ratio for layer dense_1 is 36.84%                           
+| Captured variance ratio for layer activation_2 is 26.91%                      
+| Captured variance ratio for layer dense_2 is 40.06%                           
+| Captured variance ratio for layer activation_3 is 34.04%                      
+| Captured variance ratio for layer dense_3 is 61.23%                           
+| Captured variance ratio for layer activation_4 is 23.90%                      
+| Creating Bayesian Network of 18 nodes and a maximum of 32 edges...            | Creating Bayesian Network: 2/18 nodes, 0/32 edges done...                     | Creating Bayesian Network: 4/18 nodes, 4/32 edges done...                     | Creating Bayesian Network: 6/18 nodes, 8/32 edges done...                     | Creating Bayesian Network: 8/18 nodes, 12/32 edges done...                    | Creating Bayesian Network: 10/18 nodes, 16/32 edges done...                   | Creating Bayesian Network: 12/18 nodes, 20/32 edges done...                   | Creating Bayesian Network: 14/18 nodes, 24/32 edges done...                   | Creating Bayesian Network: 16/18 nodes, 28/32 edges done...                   | Creating Bayesian Network: 18/18 nodes, 32/32 edges done...                   | Creating Bayesian Network of 18 nodes and 32 edges: baking...                 | Created Bayesian Network of 18 nodes and 32 edges.                            
+Dumping abstraction into `/home/fst/Desktop/Romeo.AI/DeepConcolic/deepconcolic/outputs/bn-abstraction.pkl'... done
+Starting tests for criterion BFC with norm L0 (500 max iterations).             
+Reporting into: /home/fst/Desktop/Romeo.AI/DeepConcolic/deepconcolic/outputs/BFC_L0-20230505-201122_report.txt
+Randomly selecting an input from test data.                                     
+Adding 1 test case                                                              Computing BN marginals...                                                       Computing BN marginals... done                                                  #0 BFC: 50.00000000%                                                            
+| Targeting interval (-inf, -16) of feature 0 in layer conv2d_1 (from test 0)   
+#1 BFC: 50.00000000% after failed attempt                                       
+| Targeting interval (-inf, -17.1) of feature 1 in layer conv2d_1 (from test 0) 
+#2 BFC: 50.00000000% after failed attempt                                       
+| Targeting interval (-inf, -26.7) of feature 0 in layer activation_1 (from test 0)
+#3 BFC: 50.00000000% after failed attempt                                       
+| Targeting interval [-6.16, inf) of feature 1 in layer activation_1 (from test 0)
+Adding 1 test case                                                              Computing BN marginals...                                                       Computing BN marginals... done                                                  #4 BFC: 91.66666667% with new test case at L0 distance 18: passed               
+| Targeting interval (-inf, -16) of feature 0 in layer conv2d_1 (from test 1)   
+#5 BFC: 91.66666667% after failed attempt                                       
+| Targeting interval (-inf, -17.1) of feature 1 in layer conv2d_1 (from test 1) 
+#6 BFC: 91.66666667% after failed attempt                                       
+| Targeting interval (-inf, -26.7) of feature 0 in layer activation_1 (from test 1)
+#7 BFC: 91.66666667% after failed attempt                                       
+Unable to find a new candidate input!                                           
+Terminating after 7 iterations: 1 test generated, 0 of which is adversarial.    
+RNG seed: 3061257391
+Loading fashion_mnist dataset... done.
+Model: "sequential_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_1 (Conv2D)           (None, 24, 24, 6)         156       
+                                                                 
+ activation_1 (Activation)   (None, 24, 24, 6)         0         
+                                                                 
+ flatten_1 (Flatten)         (None, 3456)              0         
+                                                                 
+ dense_1 (Dense)             (None, 128)               442496    
+                                                                 
+ activation_2 (Activation)   (None, 128)               0         
+                                                                 
+ dense_2 (Dense)             (None, 64)                8256      
+                                                                 
+ activation_3 (Activation)   (None, 64)                0         
+                                                                 
+ dense_3 (Dense)             (None, 10)                650       
+                                                                 
+ activation_4 (Activation)   (None, 10)                0         
+                                                                 
+=================================================================
+Total params: 451,558
+Trainable params: 451,558
+Non-trainable params: 0
+_________________________________________________________________
+Testable function layers: conv2d_1, activation_1, flatten_1, dense_1, activation_2, dense_2, activation_3, dense_3, activation_4
+Using binarizer for layer conv2d_1                                              
+Using binarizer for layer activation_1                                          
+Using binarizer for layer flatten_1                                             
+Using binarizer for layer dense_1                                               
+Using binarizer for layer activation_2                                          
+Using binarizer for layer dense_2                                               
+Using binarizer for layer activation_3                                          
+Using binarizer for layer dense_3                                               
+Using binarizer for layer activation_4                                          
+DNN under test has 9 layer functions, 9 of which are to be covered:
+[conv2d_1, activation_1, flatten_1, dense_1, activation_2, dense_2, activation_3, dense_3, activation_4]
+
+Abstracted layers: conv2d_1, activation_1, flatten_1, dense_1, activation_2, dense_2, activation_3, dense_3, activation_4
+Computing Bayesian Network abstraction... 
+| Given 30000 classified training sample                                        
+| Extracting features for layer conv2d_1...                                     
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer conv2d_1...                                   
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer activation_1...                                 
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer activation_1...                               
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer flatten_1...                                    
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer flatten_1...                                  
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer dense_1...                                      
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer dense_1...                                    
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer activation_2...                                 
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer activation_2...                               
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer dense_2...                                      
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer dense_2...                                    
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer activation_3...                                 
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer activation_3...                               
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer dense_3...                                      
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer dense_3...                                    
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Extracting features for layer activation_4...                                 
+Extracting features...                                                          | Extracted 2 features                                                          
+| Discretizing features for layer activation_4...                               
+Discretizing features...                                                        | Discretization of feature 0 involves 2 intervals                              
+| Discretization of feature 1 involves 2 intervals                              
+| Discretized 2 features                                                        
+| Captured variance ratio for layer conv2d_1 is 24.01%                          
+| Captured variance ratio for layer activation_1 is 22.61%                      
+| Captured variance ratio for layer flatten_1 is 22.61%                         
+| Captured variance ratio for layer dense_1 is 36.79%                           
+| Captured variance ratio for layer activation_2 is 26.90%                      
+| Captured variance ratio for layer dense_2 is 40.02%                           
+| Captured variance ratio for layer activation_3 is 34.05%                      
+| Captured variance ratio for layer dense_3 is 61.50%                           
+| Captured variance ratio for layer activation_4 is 23.91%                      
+| Creating Bayesian Network of 18 nodes and a maximum of 32 edges...            | Creating Bayesian Network: 2/18 nodes, 0/32 edges done...                     | Creating Bayesian Network: 4/18 nodes, 4/32 edges done...                     | Creating Bayesian Network: 6/18 nodes, 8/32 edges done...                     | Creating Bayesian Network: 8/18 nodes, 12/32 edges done...                    | Creating Bayesian Network: 10/18 nodes, 16/32 edges done...                   | Creating Bayesian Network: 12/18 nodes, 20/32 edges done...                   | Creating Bayesian Network: 14/18 nodes, 24/32 edges done...                   | Creating Bayesian Network: 16/18 nodes, 28/32 edges done...                   | Creating Bayesian Network: 18/18 nodes, 32/32 edges done...                   | Creating Bayesian Network of 18 nodes and 32 edges: baking...                 | Created Bayesian Network of 18 nodes and 32 edges.                            
+Dumping abstraction into `/home/fst/Desktop/Romeo.AI/DeepConcolic/deepconcolic/outputs/bn-abstraction.pkl'... done
+Starting tests for criterion BFC with norm L0 (500 max iterations).             
+Reporting into: /home/fst/Desktop/Romeo.AI/DeepConcolic/deepconcolic/outputs/BFC_L0-20230505-201520_report.txt
+Randomly selecting an input from test data.                                     
+Adding 1 test case                                                              Computing BN marginals...                                                       Computing BN marginals... done                                                  #0 BFC: 50.00000000%                                                            
+| Targeting interval (-inf, -15.1) of feature 0 in layer conv2d_1 (from test 0) 
+Adding 1 test case                                                              Computing BN marginals...                                                       Computing BN marginals... done                                                  #1 BFC: 97.22222222% with new test case at L0 distance 2: passed                
+| Targeting interval (-inf, -17.7) of feature 1 in layer conv2d_1 (from test 1) 
+#2 BFC: 97.22222222% after failed attempt                                       
+| Targeting interval (-inf, -17.7) of feature 1 in layer conv2d_1 (from test 0) 
+#3 BFC: 97.22222222% after failed attempt                                       
+Unable to find a new candidate input!                                           
+Terminating after 3 iterations: 1 test generated, 0 of which is adversarial.    
+RNG seed: 1117063409
+Loading fashion_mnist dataset... done.
+Model: "sequential_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_1 (Conv2D)           (None, 24, 24, 6)         156       
+                                                                 
+ activation_1 (Activation)   (None, 24, 24, 6)         0         
+                                                                 
+ flatten_1 (Flatten)         (None, 3456)              0         
+                                                                 
+ dense_1 (Dense)             (None, 128)               442496    
+                                                                 
+ activation_2 (Activation)   (None, 128)               0         
+                                                                 
+ dense_2 (Dense)             (None, 64)                8256      
+                                                                 
+ activation_3 (Activation)   (None, 64)                0         
+                                                                 
+ dense_3 (Dense)             (None, 10)                650       
+                                                                 
+ activation_4 (Activation)   (None, 10)                0         
+                                                                 
+=================================================================
+Total params: 451,558
+Trainable params: 451,558
+Non-trainable params: 0
+_________________________________________________________________
+Testable function layers: conv2d_1, activation_1, flatten_1, dense_1, activation_2, dense_2, activation_3, dense_3, activation_4
+Using binarizer for layer conv2d_1                                              
+Using binarizer for layer activation_1                                          
+Using binarizer for layer flatten_1                                             
+Using binarizer for layer dense_1                                               
+Using binarizer for layer activation_2                                          
+Using binarizer for layer dense_2                                               
+Using binarizer for layer activation_3                                          
+Using binarizer for layer dense_3                                               
+Using binarizer for layer activation_4                                          
+DNN under test has 9 layer functions, 9 of which are to be covered:
+[conv2d_1, activation_1, flatten_1, dense_1, activation_2, dense_2, activation_3, dense_3, activation_4]
+
+Abstracted layers: conv2d_1, activation_1, flatten_1, dense_1, activation_2, dense_2, activation_3, dense_3, activation_4
+Computing Bayesian Network abstraction... 
+| Given 30000 classified training sample                                        
+| Extracting features for layer conv2d_1...                                     
+Extracting features...                                                          

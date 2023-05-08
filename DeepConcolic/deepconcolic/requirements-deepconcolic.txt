@@ -1,6 +1,6 @@
-numpy==1.19.5
-scipy==1.4.1
-tensorflow\>=2.4
+numpy
+scipy
+tensorflow>=2.4
 pomegranate==0.14
 scikit-learn 
 scikit-image 

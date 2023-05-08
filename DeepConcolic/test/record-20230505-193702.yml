@@ -1,0 +1,23 @@
+adversarials: []
+norm: L0
+passed_tests:
+- index: 0
+  label: 8
+  md5: 636da2d5fd69e52a6792516b3dda0d89
+  root_index: 0
+- gen_test_id: 0
+  index: 1
+  label: 8
+  md5: c4a8b3dda0d35c2c77547cfd0af65bce
+  origin_dist: 34.0
+  origin_index: 0
+  root_dist: 34.0
+  root_index: 0
+- gen_test_id: 1
+  index: 2
+  label: 8
+  md5: 3e063221c3da6cef857fe96752fa2e59
+  origin_dist: 22.0
+  origin_index: 0
+  root_dist: 22.0
+  root_index: 0

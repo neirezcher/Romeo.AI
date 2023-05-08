@@ -17,6 +17,7 @@ from flask_dance.contrib.github import make_github_blueprint
 #db = SQLAlchemy()
 db = MongoEngine()
 login_manager = LoginManager()
+app = Flask(__name__)
 
 '''class MongoJsonEncoder(JSONEncoder):
     #adjustments to the flask json encoder for MongoEngine support
@@ -50,7 +51,7 @@ def configure_database(app):
 '''
 
 def create_app(config):
-    app = Flask(__name__)
+    
     # we altered the app's json_encoder to properly work with mongoengine objects
     #app.json_encoder=MongoJsonEncoder
     app.config.from_object(config)

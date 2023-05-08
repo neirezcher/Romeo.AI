@@ -7,7 +7,9 @@ from apps.forms import RunChecker
 from apps.models import User
 import subprocess
 import docker
-from apps import db
+from apps import db, app
+from werkzeug.utils import secure_filename
+import os
 @blueprint.route('/home')
 #@login_required
 def home():
@@ -67,20 +69,29 @@ def users():
 #@login_required
 def check_Model():
     try:
-        Deepconcolic_form = RunChecker(request.form)
-        if 'check_Model' in request.form:
-            if request.method=='POST' and Deepconcolic_form.validate_on_submit():
-                model= Deepconcolic_form.model.data
-                dataset= Deepconcolic_form.dataset.data
-                criteria= Deepconcolic_form.criteria.data
-                norm= Deepconcolic_form.norm.data
-                num_iteration=Deepconcolic_form.iteration.data
-                command='python3 -m Deepconcolic.deepconcolic.main --outputs outs/ --dataset {0} --model {1} --criterion {2} --norm {3} --save-all-tests --max-iterations {4}'.format(str(dataset),model,criteria,norm,num_iteration)
-                run=subprocess.run(command,shell=True, capture_output=True,text=True)
+        Deepconcolic_form = RunChecker()
+        print(Deepconcolic_form.validate_on_submit())
+        if Deepconcolic_form.is_submitted():
+            print(Deepconcolic_form.model.data)
+        if request.method == "POST" and Deepconcolic_form.validate_on_submit():
+            modelname = secure_filename(Deepconcolic_form.model.data.filename)
+            print(app.instance_path)
+            Deepconcolic_form.model.data.save(os.path.join(
+            app.root_path, 'uploads', modelname
+             ) )
+            dataset= Deepconcolic_form.dataset.data
+            criteria= Deepconcolic_form.criteria.data
+            norm= Deepconcolic_form.norm.data
+            return redirect(url_for('home_blueprint.home'))
+                #command='python3 -m Deepconcolic.deepconcolic.main --outputs outs/ --dataset {0} --model {1} --criterion {2} --norm {3} --save-all-tests --max-iterations {4}'.format(str(dataset),model,criteria,norm,num_iteration)
+                #run=subprocess.run(command,shell=True, capture_output=True,text=True)
+        else:
+            flash(Deepconcolic_form.errors)
     except TemplateNotFound:
         return render_template('home/page-404.html'), 404
 
-    except:
+    except Exception as e:
+        print(e)
         return render_template('home/page-500.html'), 500
     return render_template('home/form.html', form=Deepconcolic_form, segment='form')
 @blueprint.route('/get_results')
