@@ -1,0 +1,81 @@
+{
+    "main-banner":[
+        {
+        "id":1,
+        "category":"Romeo.AI",
+        "titre":"Introducing Romeo.AI",
+        "text":"Romeo.AI is an App that helps you to test your model robustness based on generated adversarial samples. this App is supported by a testing toolbox called Deepconcolic which is based on the concolic testing approach.",
+        "botton-link":"#",
+        "botton-text":"try it NOW"
+
+        },
+        {   "id":2,
+            "category":"Deepconcolic",
+            "titre":"Get to know Deepconcolic",
+            "text":"Deepconcolic is a tool developed for testing and verifying the correctness and robustness of deep neural networks. It combines both concrete and symbolic execution to generate inputs that can reveal the limitations and biases of a trained neural network.",
+            "botton-link":"https://www.youtube.com/watch?v=rliynbhoNLM",
+            "botton-text":"Demo for DeepConcolic tool"
+
+        },
+        {
+            "id":3,
+            "category":"Datasets",
+            "titre":"MNIST-Dataset",
+            "text":"The MNIST database (Modified National Institute of Standards and Technology database) is a large database of handwritten digits that is commonly used for training various image processing systems.",
+            "botton-link":"https://www.kaggle.com/datasets/oddrationale/mnist-in-csv",
+            "botton-text":"Download your datasets"
+
+        },
+        {
+            "id":4,
+            "category":"Datasets",
+            "titre":"Fashion-MNIST-Dataset",
+            "text":"Fashion-MNIST is a dataset of Zalando's article images consisting of a training set of 60,000 examples and a test set of 10,000 examples. Each example is a 28x28 grayscale image, associated with a label from 10 classes.",
+            "botton-link":"https://www.kaggle.com/datasets/zalando-research/fashionmnist",
+            "botton-text":"Download your datasets"
+
+        },
+        {
+            "id":5,
+            "category":"Datasets",
+            "titre":"Cifar10-Dataset",
+            "text":"CIFAR-10  is an established computer-vision dataset used for object recognition. It is a subset of the 80 million tiny images dataset and consists of 60,000 32x32 color images containing one of 10 object classes, with 6000 images per class.",
+            "botton-link":"https://www.kaggle.com/competitions/cifar-10/data",
+            "botton-text":"Download your datasets"
+
+        }
+],
+    "process":[
+        {"image-source":"static/assets/img/welcome/upload.png",
+        "image-alt":"upload",
+        "titre":"Upload your model",
+        "paragraph":""},
+        {"image-source":"static/assets/img/welcome/checkmark.png",
+        "image-alt":"checked",
+        "titre":"",
+        "paragraph":""},
+        {"image-source":"static/assets/img/welcome/notification.png",
+        "image-alt":"notification by email",
+        "titre":"Get notified by email",
+        "paragraph":""}
+    ],
+    "tech":[
+        {
+            "image-source":"https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+            "image-alt":"",
+            "title":"Python",
+            "link":"https://www.python.org/"},
+        {
+            "image-source":"https://upload.wikimedia.org/wikipedia/commons/0/00/Mongodb-svgrepo-com.svg",
+            "image-alt":"",
+            "title":"Mongo DB",
+            "link":"https://www.mongodb.com/" 
+        },
+        {
+            "image-source":"https://upload.wikimedia.org/wikipedia/commons/a/a7/Docker-svgrepo-com.svg",
+            "image-alt":"",
+            "title":"Docker",
+            "link":"https://www.docker.com/" 
+        }
+    ]
+}

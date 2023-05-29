@@ -1,4 +1,0 @@
-BFC-cover: 0.5 #test cases: 1 #adversarial examples: 0
-BFC-cover: 0.9722222222222222 #test cases: 2 #adversarial examples: 0 #diff: 2 #layer: 0 #feat: 0 #part: 0
-BFC-cover: 0.9722222222222222 #test cases: 2 #adversarial examples: 0 #diff: _ #layer: 0 #feat: 1 #part: 0
-BFC-cover: 0.9722222222222222 #test cases: 2 #adversarial examples: 0 #diff: _ #layer: 0 #feat: 1 #part: 0

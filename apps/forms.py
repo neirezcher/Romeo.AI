@@ -2,8 +2,8 @@
 
 
 from flask_wtf import FlaskForm
-from wtforms import TextField, PasswordField, SelectField, SelectMultipleField, IntegerField,SubmitField
-from wtforms.validators import Email, DataRequired, Regexp, NumberRange,EqualTo
+from wtforms import TextField, PasswordField, SelectField, SelectMultipleField, IntegerField,SubmitField,TextAreaField
+from wtforms.validators import Email, DataRequired, Regexp, NumberRange,EqualTo,Optional,Length
 
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 
@@ -33,7 +33,7 @@ class CreateAccountForm(FlaskForm):
                              id='pwd_create',
                              validators=[DataRequired(),EqualTo("password_confirm", message="Passwords Don't match!!!")])
 
-
+# deepconcolic params input
 class RunChecker(FlaskForm):
     
     model = FileField('Model', validators=[FileRequired()])
@@ -48,13 +48,20 @@ class RunChecker(FlaskForm):
                             id='criteria_run',
                             validators=[DataRequired()],
                             choices=[('nc','Neuron Coverage'), 
-                                      ('nc_BFS', 'Neuron Coverage with BFS heuristic'),
                                       ('ssc','Sign-Sign Coverage'),
-                                      ('ssc_BFS','Sign-Sign Coverage with BFS heuristic '),
-                                      ('nbc','Neuron Boudary Coverage')])
+                                      ('bfc','Neuron Boudary Coverage')])
     norm = SelectField('Norm',
                          id='norm_run',
                          validators=[DataRequired()],
                          choices=[("l0","L0"),
                                   ("linf","Linfini")])
-    submit = SubmitField(label="run")
+    submit = SubmitField(label="Run")
+class ContactForm(FlaskForm):
+    name = TextField('Name',
+                      id='name',
+                      validators=[DataRequired()])
+    email = TextField('Email',
+                      id='email',
+                      validators=[DataRequired(), Email()])
+  
+    msg=TextAreaField(u'Mailing Address',id='message',validators=[Optional(),Length(max=200)])

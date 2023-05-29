@@ -807,24 +807,68 @@ var BarsChart = (function() {
 	//
 
 	var $chart = $('#chart-bars');
-
-
+	//var classRobustnessData = JSON.parse(document.getElementById('chart-bars').dataset.json);
+	var classRobustnessData = JSON.parse($('#json-data').val());
+	//var classRobustnessData = $chart.attr('data-class-robustness');
+	console.log('classRobustnessData:', classRobustnessData);
+	// Retrieve the data passed from Flask
+	// Get the last record data from the Flask route
+	//var classRobustness = JSON.parse(classRobustnessData);
+	var labels = Object.keys(classRobustnessData);
+	console.log(labels);
+	var values = Object.values(classRobustnessData);
+	console.log(values);
 	//
 	// Methods
 	//
-
+	// Callback function to generate y-labels based on data values
+	function generateYLabels(value, index, values) {
+		// Customize the y-label generation based on your requirements
+		// This example simply returns the value as the label
+		return value;
+	  }
 	// Init chart
 	function initChart($chart) {
 
 		// Create chart
 		var ordersChart = new Chart($chart, {
 			type: 'bar',
+			options: {
+				scales: {
+				  yAxes: [{
+					gridLines: {
+					  lineWidth: 1,
+					  color: Charts.colors.gray[900],
+					  zeroLineColor: Charts.colors.gray[900]
+					},
+					ticks: {
+					  callback: function(value) {
+						if (!(value % 10)) {
+						  return  value ;
+						}
+					  }
+					}
+				  }]
+				},
+			 	y: {
+						ticks: {
+						  callback: generateYLabels
+						}
+					  },
+				datasets: {
+					bar: {
+						  maxBarThickness: 1 // Set the maximum bar thickness for the dataset
+						}
+					  }
+					
+			  },
 			data: {
-				labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				labels: labels,
 				datasets: [{
-					label: 'Sales',
-					data: [25, 20, 30, 22, 17, 29]
-				}]
+					label: 'Robustness',
+					data: values,
+                }]
+				
 			}
 		});
 
@@ -1064,3 +1108,31 @@ var Scrollbar = (function() {
 	}
 
 })();
+/*'use strict';
+var deleteObject = {
+    deleteFunction: function(objectId) {
+        // Send an AJAX request to the delete route
+        fetch('/delete-object/' + objectId, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response from the server, if needed
+            console.log(data);
+            // Redirect to the list_report route
+            window.location.href = '/list-report';
+        })
+        .catch(error => {
+            // Handle any errors that occurred during the request
+            console.error('Error:', error);
+        });
+    }
+};
+
+// Add event listener to the button
+document.getElementById("delete-wrapper").addEventListener("click", function() {
+    var objectId = this.dataset.objectId;
+    var element = document.getElementById("delete-wrapper");
+    element.classList.toggle("open");
+	deleteObject.deleteFunction(objectId);
+});*/

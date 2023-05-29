@@ -7,4 +7,3 @@ blueprint = Blueprint(
     __name__,
     url_prefix=''
 )
-googleAuth = Blueprint('google_auth', __name__)

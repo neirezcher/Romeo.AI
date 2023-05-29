@@ -15,14 +15,17 @@ RUN echo "conda activate deepconcolic" >> ~/.bashrc
 
 ENV PATH /opt/conda/envs/deepconcolic/bin:$PATH
 #old version
-#RUN apt-get update \
-    #&& apt-get install -y --no-install-recommends libgl1-mesa-glx \
+
     #&& rm -rf /var/lib/apt/lists/*
 
 # Install required packages using Conda and Pip
-RUN pip install opencv-python-headless
-RUN conda install -y -c conda-forge opencv nltk matplotlib && \
-    conda install -c pytorch -y torchvision
+
+RUN conda install -y -c conda-forge opencv
+RUN conda install -y -c conda-forge nltk 
+RUN conda install -y -c conda-forge matplotlib
+RUN conda install -y -c conda-forge pytorch 
+RUN conda install -y -c conda-forge torchvision
+
 # Set the working directory
 WORKDIR /app
 
@@ -30,15 +33,18 @@ WORKDIR /app
 COPY . /app
 
 # Create a directory inside the app directory of the container
-RUN mkdir /saved_Models
+RUN mkdir /app/saved_Models
+RUN mkdir /app/outputs
 
 RUN apt-get update && apt-get install -y gfortran
+RUN apt-get install -y mesa-utils
 RUN apt-get install -y build-essential python3-dev python3-numpy
 
 
-
+#RUN pip install opencv-python-headless
 RUN pip3 install -r requirements-deepconcolic.txt
+
 # Expose the port used by the app
 EXPOSE 8080
 # Set the command to run the app and pass it arguments and the file uploaded
-ENTRYPOINT ["conda","run","--capture-output","-n","deepconcolic","python", "main.py"]
+ENTRYPOINT ["conda","run","-n","deepconcolic","python", "run.py"]

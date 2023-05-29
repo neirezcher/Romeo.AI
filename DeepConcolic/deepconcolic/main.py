@@ -5,10 +5,6 @@ from utils_io import *
 from utils_funcs import *
 from utils import *
 from bounds import UniformBounds, StatBasedInputBounds
-from send_mail import sendMail
-from data_extraction import *
-from rb_calcul import robustness
-from database_save import save as mongosave
 import fuzzer, datasets
 import filters
 import plugins
@@ -143,13 +139,7 @@ def deepconcolic(criterion, norm, test_object, report_args,
 
 
 def main():
-  cuurrentdir=os.getcwd()
-  # Path 
-  path = os.path.join(cuurrentdir, "/outputs") 
-    
-  # Create the directory 
 
-  os.mkdir(path)
   parser = argparse.ArgumentParser \
     (description = 'Concolic testing for Neural Networks',
      prog = 'python3 -m deepconcolic.main',
@@ -158,7 +148,7 @@ def main():
                       help="selected dataset", choices=datasets.choices)
   parser.add_argument ('--model', required = True,
                        help = 'the input neural network model (.h5 file or "vgg16")')
-  parser.add_argument("--outputs", dest="outputs", required = False,
+  parser.add_argument("--outputs", dest="outputs", required = True,
                       help="the output test data directory", metavar="DIR")
   # parser.add_argument("--training-data", dest="training_data", default="-1",
   #                     help="the extra training dataset", metavar="DIR")
@@ -221,141 +211,119 @@ def main():
                       metavar="SPEC")
   parser.add_argument('--dbnc-abstr', '--bn-abstr', metavar = 'PKL',
                       help = 'input BN abstraction (.pkl)')
-  parser.add_argument('--user-email', metavar = 'String', type = str, action='store')
 
   args = parser.parse_args ()
-  if args.criterion =='nc':
-    numbinteration=34
-  elif args.criterion== 'bfc':
-    numbinteration=501
-  else:
-    numbinteration=3
-  
 
-  for i in range(numbinteration):
-    # Initialize with random seed first, if given:
-    try: rng_seed (args.rng_seed)
-    except ValueError as e:
-      sys.exit ("Invalid argument given for `--rng-seed': {}".format (e))
+  # Initialize with random seed first, if given:
+  try: rng_seed (args.rng_seed)
+  except ValueError as e:
+    sys.exit ("Invalid argument given for `--rng-seed': {}".format (e))
 
-    inp_ub = 1
-    lower_bound_metric_hard = None
-    lower_bound_metric_noise = None
+  inp_ub = 1
+  lower_bound_metric_hard = None
+  lower_bound_metric_noise = None
 
-    dd = dataset_dict (args.dataset)
-    train_data, test_data, kind, save_input, postproc_inputs, ib = \
-      dd['train_data'], dd['test_data'], dd['kind'], \
-      dd['save_input'], dd['postproc_inputs'], dd['input_bounds']
-    amplify_diffs = kind in datasets.image_kinds
-    if kind in datasets.image_kinds: # assume 256 res.
-      lower_bound_metric_hard = 1 / 255
-    input_bounds = (UniformBounds (*ib) if isinstance (ib, tuple) and len (ib) == 2 else \
-                    StatBasedInputBounds (hard_bounds = UniformBounds (-1.0, 1.0)) \
-                    if ib == 'normalized' else StatBasedInputBounds ())
-    del dd
+  dd = dataset_dict (args.dataset)
+  train_data, test_data, kind, save_input, postproc_inputs, ib = \
+    dd['train_data'], dd['test_data'], dd['kind'], \
+    dd['save_input'], dd['postproc_inputs'], dd['input_bounds']
+  amplify_diffs = kind in datasets.image_kinds
+  if kind in datasets.image_kinds: # assume 256 res.
+    lower_bound_metric_hard = 1 / 255
+  input_bounds = (UniformBounds (*ib) if isinstance (ib, tuple) and len (ib) == 2 else \
+                  StatBasedInputBounds (hard_bounds = UniformBounds (-1.0, 1.0)) \
+                  if ib == 'normalized' else StatBasedInputBounds ())
+  del dd
 
-    if args.extra_testset_dirs is not None:
-      for d in args.extra_testset_dirs:
-        np1 (f'Loading extra image testset from `{str(d)}\'... ')
-        x, y, _, _, _ = datasets.images_from_dir (str (d))
-        x_test = np.concatenate ((x_test, x))
-        y_test = np.concatenate ((y_test, y))
-        print ('done')
+  if args.extra_testset_dirs is not None:
+    for d in args.extra_testset_dirs:
+      np1 (f'Loading extra image testset from `{str(d)}\'... ')
+      x, y, _, _, _ = datasets.images_from_dir (str (d))
+      x_test = np.concatenate ((x_test, x))
+      y_test = np.concatenate ((y_test, y))
+      print ('done')
 
-    input_filters = []
-    for f in args.filters:
-      input_filters += xlist (filters.by_name (f))
+  input_filters = []
+  for f in args.filters:
+    input_filters += xlist (filters.by_name (f))
 
-    dnn = load_model (args.model)
-    dnn.summary ()
+  dnn = load_model (args.model)
+  dnn.summary ()
 
-    if args.model == 'vgg16':
-      # XXX: that should be about loading some metadata with, e.g. args.dataset == 'ImageNet'.
-      inp_ub = 255                # XXX: not really used (yet/anymore) I think
-      input_bounds = UniformBounds (0.0, 255.0)
-      postproc_inputs = fix_image_channels_ (up = None, down = None)
-      save_input = save_an_image_ (channel_upscale = 1.)
-      lower_bound_metric_hard = 1 / 255
+  if args.model == 'vgg16':
+    # XXX: that should be about loading some metadata with, e.g. args.dataset == 'ImageNet'.
+    inp_ub = 255                # XXX: not really used (yet/anymore) I think
+    input_bounds = UniformBounds (0.0, 255.0)
+    postproc_inputs = fix_image_channels_ (up = None, down = None)
+    save_input = save_an_image_ (channel_upscale = 1.)
+    lower_bound_metric_hard = 1 / 255
 
-    if args.lb_hard is not None:
-      lower_bound_metric_hard = float (args.lb_hard)
-      assert 0.0 < lower_bound_metric_hard <= 1.0
-    lower_bound_metric_hard = some (lower_bound_metric_hard, 1/100)
+  if args.lb_hard is not None:
+    lower_bound_metric_hard = float (args.lb_hard)
+    assert 0.0 < lower_bound_metric_hard <= 1.0
+  lower_bound_metric_hard = some (lower_bound_metric_hard, 1/100)
 
-    if args.lb_noise is not None:
-      lower_bound_metric_noise = float (args.lb_noise)
-      assert 0.0 <= lower_bound_metric_noise <= 1.0
-    lower_bound_metric_noise = some (lower_bound_metric_noise, 1/10)
+  if args.lb_noise is not None:
+    lower_bound_metric_noise = float (args.lb_noise)
+    assert 0.0 <= lower_bound_metric_noise <= 1.0
+  lower_bound_metric_noise = some (lower_bound_metric_noise, 1/10)
 
-    input_bounds = some (input_bounds, UniformBounds (0.0, 1.0))
-    postproc_inputs = some (postproc_inputs, id)
+  input_bounds = some (input_bounds, UniformBounds (0.0, 1.0))
+  postproc_inputs = some (postproc_inputs, id)
 
-    test_object = test_objectt (dnn, train_data, test_data)
-    test_object.cond_ratio = args.mcdc_cond_ratio
-    test_object.postproc_inputs = postproc_inputs
-    # NB: only used in run_ssc.run_svc (which is probably broken) >>
-    test_object.top_classes = int (args.top_classes)
-    test_object.inp_ub = inp_ub
-    # <<<
-    if args.layers is not None:
-      try:
-        test_object.set_layer_indices (int (l) if l.isdigit () else l
-                                      for l in args.layers)
-      except ValueError as e:
-        sys.exit (e)
-    if args.feature_index!='-1':
-      test_object.feature_indices = [ int(args.feature_index) ]
-      print ('feature index specified:', test_object.feature_indices)
-
-    init_tests = int (args.init_tests) if args.init_tests is not None else None
-    max_iterations = int (args.max_iterations)
-
-    # DBNC-specific parameters:
+  test_object = test_objectt (dnn, train_data, test_data)
+  test_object.cond_ratio = args.mcdc_cond_ratio
+  test_object.postproc_inputs = postproc_inputs
+  # NB: only used in run_ssc.run_svc (which is probably broken) >>
+  test_object.top_classes = int (args.top_classes)
+  test_object.inp_ub = inp_ub
+  # <<<
+  if args.layers is not None:
     try:
-      if args.dbnc_spec != "{}" and os.path.exists(args.dbnc_spec):
-        with open(args.dbnc_spec, 'r') as f:
-          dbnc_spec = yaml.safe_load (f)
-      else:
-        dbnc_spec = yaml.safe_load (args.dbnc_spec)
-      if len (dbnc_spec) > 0:
-        print ("DBNC Spec:\n", yaml.dump (dbnc_spec), sep='')
-    except yaml.YAMLError as exc:
-      sys.exit(exc)
+      test_object.set_layer_indices (int (l) if l.isdigit () else l
+                                     for l in args.layers)
+    except ValueError as e:
+      sys.exit (e)
+  if args.feature_index!='-1':
+    test_object.feature_indices = [ int(args.feature_index) ]
+    print ('feature index specified:', test_object.feature_indices)
 
-    if args.dbnc_abstr is not None and os.path.exists(args.dbnc_abstr):
-      dbnc_spec = dict () if dbnc_spec is None else dbnc_spec
-      dbnc_spec['bn_abstr'] = args.dbnc_abstr
-    elif args.dbnc_abstr is not None:
-      sys.exit (f'BN abstraction file `{args.dbnc_abstr}\' missing')
+  init_tests = int (args.init_tests) if args.init_tests is not None else None
+  max_iterations = int (args.max_iterations)
 
-    deepconcolic (args.criterion, args.norm, test_object,
-                  report_args = { 'outdir': OutputDir (path, log = True),
-                                  'save_new_tests': args.save_all_tests,
-                                  'save_input_func': save_input,
-                                  'amplify_diffs': amplify_diffs },
-                  norm_args = { 'factor': args.norm_factor,
-                                'LB_hard': lower_bound_metric_hard,
-                                'LB_noise': lower_bound_metric_noise },
-                  engine_args = { 'custom_filters': input_filters },
-                  dbnc_spec = dbnc_spec,
-                  input_bounds = input_bounds,
-                  postproc_inputs = postproc_inputs,
-                  run_engine = not args.setup_only,
-                  initial_test_cases = init_tests,
-                  max_iterations = max_iterations)
-  if args.criterion =='nc':
-    df,defect_class=yml_Data_extracting(path,args.criterion)
-  else: 
-    df,defect_class=picture_Data_extracting(path,args.criterion, args.norm)
-  dict_,robustByClass,heatmap,dnn_robust=robustness(df,10)
-  if args.criterion =='nc':
-    mongosave(args.user_email,dnn_robust,dnn_robust,None,None,robustByClass,heatmap,args.norm,args.dataset, args.model,args.criterion)
-  elif args.criterion=='ssc':
-    mongosave(args.user_email,dnn_robust,None,dnn_robust,None,robustByClass,heatmap,args.norm,args.dataset, args.model,args.criterion)
-  else:
-    mongosave(args.user_email,dnn_robust,None,None,dnn_robust,robustByClass,heatmap,args.norm,args.dataset, args.model,args.criterion)
-  sendMail(args.user_email)
-  os.remove(path)
+  # DBNC-specific parameters:
+  try:
+    if args.dbnc_spec != "{}" and os.path.exists(args.dbnc_spec):
+      with open(args.dbnc_spec, 'r') as f:
+        dbnc_spec = yaml.safe_load (f)
+    else:
+      dbnc_spec = yaml.safe_load (args.dbnc_spec)
+    if len (dbnc_spec) > 0:
+      print ("DBNC Spec:\n", yaml.dump (dbnc_spec), sep='')
+  except yaml.YAMLError as exc:
+    sys.exit(exc)
+
+  if args.dbnc_abstr is not None and os.path.exists(args.dbnc_abstr):
+    dbnc_spec = dict () if dbnc_spec is None else dbnc_spec
+    dbnc_spec['bn_abstr'] = args.dbnc_abstr
+  elif args.dbnc_abstr is not None:
+    sys.exit (f'BN abstraction file `{args.dbnc_abstr}\' missing')
+
+  deepconcolic (args.criterion, args.norm, test_object,
+                report_args = { 'outdir': OutputDir (args.outputs, log = True),
+                                'save_new_tests': args.save_all_tests,
+                                'save_input_func': save_input,
+                                'amplify_diffs': amplify_diffs },
+                norm_args = { 'factor': args.norm_factor,
+                              'LB_hard': lower_bound_metric_hard,
+                              'LB_noise': lower_bound_metric_noise },
+                engine_args = { 'custom_filters': input_filters },
+                dbnc_spec = dbnc_spec,
+                input_bounds = input_bounds,
+                postproc_inputs = postproc_inputs,
+                run_engine = not args.setup_only,
+                initial_test_cases = init_tests,
+                max_iterations = max_iterations)
 
 if __name__=="__main__":
   try:

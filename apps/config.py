@@ -13,8 +13,12 @@ class Config(object):
     # This will create a file in <app> FOLDER
     #SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db.sqlite3')
     #SQLALCHEMY_TRACK_MODIFICATIONS = False
-    MONGO_URI=config('MONGODB_URI')
-    MONG_DBNAME="romeo_ai_db"
+    MONGODB_SETTINGS = {
+        'host': config('MONGODB_URI'),
+        'connectTimeoutMS': 5000,
+        'socketTimeoutMS': 5000,
+        'retryWrites': True
+    }
     OAUTHLIB_INSECURE_TRANSPORT = 1
     GOOGLE_OAUTH_CLIENT_ID=config('GOOGLE_ID')
     GOOGLE_OAUTH_CLIENT_SECRET=config('GOOGLE_SECRET')

@@ -28,7 +28,7 @@ app = create_app(app_config)
 if DEBUG:
     app.logger.info('DEBUG       = ' + str(DEBUG))
     app.logger.info('Environment = ' + get_config_mode)
-    app.logger.info('DBMS        = ' + app_config.MONGO_URI)
+    app.logger.info('DBMS        = ' + app_config.MONGODB_SETTINGS['host'])
 
 if __name__ == "__main__":
     app.run()

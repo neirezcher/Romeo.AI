@@ -1,5 +1,6 @@
 numpy
 scipy
+pandas
 tensorflow>=2.4
 pomegranate==0.14
 scikit-learn 
@@ -19,3 +20,5 @@ z3-solver
 pyvis
 pymongo
 python-dotenv
+Pillow
+openpyxl

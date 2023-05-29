@@ -1,0 +1,41 @@
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Romeo.ai_adjusted_size.svg" alt="Logo Romeo.ai" class="logo" width=1% height=1%/>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Serach Start ***** -->
+                    <div class="search-input">
+                      <form id="search" action="#">
+                        <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
+                        <i class="fa fa-search"></i>
+                      </form>
+                    </div>
+                    <!-- ***** Serach Start ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                      <li class="scroll-to-section"><a href="#process">Process</a></li>
+                      <li class="scroll-to-section"><a href="#about-us">About Us</a></li>
+                      <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
+                      <li class="scroll-to-section"><div class="main-button">
+                    <a href="{{ url_for('authentication_blueprint.register') }}">Sign in</a>
+                  </div></li>
+                  <li class="scroll-to-section"><div class="main-button-second">
+                    <a href="{{ url_for('authentication_blueprint.login') }}">login</a>
+                  </div></li>
+                  </ul> 
+                  
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->

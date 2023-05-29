@@ -34,7 +34,7 @@ def register_extensions(app):
 
 
 def register_blueprints(app):
-    for module_name in ('authentication', 'home'):
+    for module_name in ('authentication', 'home','welcome'):
         module = import_module('apps.{}.routes'.format(module_name))
         app.register_blueprint(module.blueprint)
 
@@ -55,6 +55,7 @@ def create_app(config):
     # we altered the app's json_encoder to properly work with mongoengine objects
     #app.json_encoder=MongoJsonEncoder
     app.config.from_object(config)
+    
     google_bp = make_google_blueprint(scope=["profile", "email"])
     app.register_blueprint(google_bp, url_prefix="/login")
     github_bp =  make_github_blueprint()

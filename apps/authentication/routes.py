@@ -19,10 +19,10 @@ from apps.authentication.util import verify_pass,hash_pass
 #import google.oauth2.credentials
 #import googleapiclient.discovery
 
-
+'''
 @blueprint.route('/')
 def route_default():
-    '''if current_user.is_authenticated:
+    if current_user.is_authenticated:
         return render_template(
             "home.html",
             user_name=current_user.name,
@@ -30,8 +30,8 @@ def route_default():
             user_profile_pic=current_user.profile_pic,
         )
     else:
-        return render_template("index.html")'''
-    return redirect(url_for('authentication_blueprint.login'))
+        return render_template("index.html")
+    return redirect(url_for('authentication_blueprint.login'))'''
 
 
 # Login & Registration
@@ -52,7 +52,7 @@ def login():
         if user and verify_pass(password, user.password):
 
             login_user(user)
-            return redirect(url_for('authentication_blueprint.route_default'))
+            return redirect(url_for('authentication_blueprint.login'))
 
         # Something (user or pass) is not ok
         return render_template('accounts/login.html',
