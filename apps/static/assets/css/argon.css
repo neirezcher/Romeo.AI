@@ -5152,7 +5152,7 @@ button.bg-dark:focus {
   background-color: #0a0c0d !important; }
 
 .bg-default {
-  background-color: #172b4d !important; }
+  background-color: #f8f9fe !important; }
 
 a.bg-default:hover, a.bg-default:focus,
 button.bg-default:hover,
@@ -14408,7 +14408,9 @@ button.section-darker:focus {
 
 .fill-default {
   fill: #172b4d; }
-
+.fill-whiter{
+  fill: #f8f9fe;
+}
 .stroke-default {
   stroke: #172b4d; }
 
@@ -16923,6 +16925,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 .scrollbar-dynamic > .scroll-element.scroll-y.scroll-draggable .scroll-element_outer {
   min-width: 7px;
   width: 20px; }
+
 
 /*************** SCROLLBAR GOOGLE CHROME ***************/
 .scrollbar-chrome > .scroll-element,

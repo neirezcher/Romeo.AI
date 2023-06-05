@@ -49,15 +49,15 @@
         {"image-source":"static/assets/img/welcome/upload.png",
         "image-alt":"upload",
         "titre":"Upload your model",
-        "paragraph":""},
+        "paragraph":"you are developing an AI model and you want to test its robustness you are at the right place all you have to do is uploading your image classification model in H5 format."},
         {"image-source":"static/assets/img/welcome/checkmark.png",
         "image-alt":"checked",
-        "titre":"",
-        "paragraph":""},
+        "titre":"launch a model checking",
+        "paragraph":"by a few clicks you are ready to test your model. We kindly resquest your confidence. however this task takes time."},
         {"image-source":"static/assets/img/welcome/notification.png",
         "image-alt":"notification by email",
         "titre":"Get notified by email",
-        "paragraph":""}
+        "paragraph":"Do not worry because we take care of this issue and for that we are poviding an emailing service. Once your report is ready we will send you a notification email. "}
     ],
     "tech":[
         {
@@ -77,5 +77,45 @@
             "title":"Docker",
             "link":"https://www.docker.com/" 
         }
+    ],
+    "FQA":[
+        {
+            "id":"headingOne",
+            "collapse":"collapseOne",
+            "question":"How can Romeo.ai help me improve my productivity and efficiency?",
+            "response":"Romeo.ai can help improve your productivity and efficiency by automating repetitive tasks, providing intelligent data analysis, and offering actionable insights. With its AI-powered capabilities, Romeo.ai can streamline workflows, enhance decision-making processes, and accelerate task completion, ultimately saving you time and effort." 
+        },
+        {
+            "id":"headingTwo",
+            "collapse":"collapseTwo",
+            "question":"Is Romeo.ai suitable for both beginners and advanced users? ",
+            "response":"Romeo.ai is designed to be suitable for both beginners and advanced users. Its user-friendly interface and intuitive features make it accessible and easy to use." 
+
+        },
+        {
+            "id":"headingThree",
+            "collapse":"collapseThree",
+            "question":"How does Romeo.ai ensure data security and privacy?",
+            "response":"Romeo.ai ensures data security and privacy through strong encryption protocols, robust access controls, data anonymization practices, compliance with regulations, and regular security audits. These measures protect user data during transmission, limit access to authorized personnel, anonymize personally identifiable information, comply with relevant data protection regulations, and proactively identify and address vulnerabilities to maintain a high level of security." 
+
+        },
+        {
+            "id":"headingFour",
+            "collapse":"collapseFour",
+            "question":"Can Romeo.ai provide real-time analytics and insights for my data?",
+            "response":" Currently, Romeo.ai is still working towards optimizing its solution for real-time analytics and insights. In the current version, the generation of results may take some time, and once they are ready for review, the user is notified via email." 
+
+        }
+    ],
+    "testimonials":[
+        {"name":"Jeon Jungkook",
+        "opinion":"I'm impressed with the ease of use and accuracy of Romeo.ai. As a beginner in CNN classification, it has allowed me to test and evaluate my models effortlessly. The availability of pre-trained models on well-known benchmarks like MNIST and CIFAR-10 has been a great learning tool for me. Thank you, Romeo.ai!",
+        "occupation": "Student"},
+        {"name":"Lee Felix",
+        "opinion":"I've been using Romeo.ai for testing my CNN models, and it has exceeded my expectations. The platform is intuitive, and the insights provided have been invaluable in improving the accuracy of my models. I highly recommend Romeo.ai to anyone in the field.",
+        "occupation": "ML engineer"},
+        {"name":"AugustD",
+        "opinion":"Romeo.ai has saved us so much time and effort in evaluating our CNN models. The platform's ability to generate results and notify us by email has streamlined our workflow. The performance on benchmarks like Fashion-MNIST has provided us with confidence in our models. It's a fantastic tool for anyone working with CNN classification.",
+        "occupation": "Data Scientist"}
     ]
 }

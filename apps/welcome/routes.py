@@ -33,7 +33,7 @@ def welcome():
 
 @blueprint.route('/submit-contact', methods=['GET', 'POST'])
 def submit_contact():
-    '''form = ContactForm(request.form)
+    form = ContactForm(request.form)
     if form.validate_on_submit():
         name = form.name.data
         email = form.email.data
@@ -44,8 +44,7 @@ def submit_contact():
         contact_us.save()
         return render_template('welcome/thanks.html', segment='thank you!')
     else:
-        return redirect(url_for('welcome_blueprint.welcome'))'''
-    return render_template('welcome/thanks.html', segment='thank you!')
+        return redirect(url_for('welcome_blueprint.welcome'))
 @blueprint.errorhandler(403)
 def access_forbidden(error):
     return render_template('home/page-403.html'), 403

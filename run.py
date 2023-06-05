@@ -24,6 +24,12 @@ except KeyError:
 
 app = create_app(app_config)
 #Migrate(app, db)
+import base64
+
+def b64encode_filter(data):
+    return base64.b64encode(data).decode('utf-8')
+#the b64encode filter is not available in Jinja by default so we can define a custom filter to perform the base64 encoding
+app.jinja_env.filters['b64encode'] = b64encode_filter
 
 if DEBUG:
     app.logger.info('DEBUG       = ' + str(DEBUG))

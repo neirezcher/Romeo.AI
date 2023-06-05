@@ -1,0 +1,149 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Users {% endblock title %}
+
+{% block content %}
+
+  <div class="header bg-primary pb-6">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          <div class="col-lg-6 col-7">
+            <h6 class="h2 text-white d-inline-block mb-0">List Romeo.AI Members</h6>
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="{{ url_for('home_blueprint.home') }}"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item active" aria-current="page">Users</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="col-lg-6 col-5 text-right">
+            <a href="{{ url_for('admin_blueprint.addUser') }}" class="btn btn-sm btn-neutral"><i class="ni ni-fat-add"></i> Add User</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Page content -->
+  <div class="container-fluid mt--6">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <!-- Card header -->
+          <div class="card-header border-0">
+            <h3 class="mb-0">Members List</h3>
+          </div>
+          <!-- Light table -->
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" class="sort" data-sort="name">User name</th>
+                  <th scope="col" class="sort" data-sort="criteria">E-mail</th>
+                  <th scope="col" class="sort" data-sort="norm">Country</th>
+                  <th scope="col" class="sort" data-sort="status">City</th>
+                  <th scope="col" style="width: 10px;">Edit</th>
+                  <th scope="col" style="width: 10px;">Delete</th>
+                  
+                </tr>
+              </thead>
+              <tbody class="list">
+                {% for user in users %}
+                
+    
+
+
+                <tr>
+                  <th scope="row">
+                    <div class="media align-items-center">
+                      <a href="{{ url_for('admin_blueprint.edit_profile', user_id=user.id) }}" class="avatar rounded-circle mr-3">
+                        {% if user.profile_image %}
+                        {% set image_data = user.profile_image.read() %}
+                        {% set base64_image = image_data|b64encode %}
+                        <img src="data:image/jpeg;base64,{{ base64_image }}" alt="Profile Image">
+                        {% else %}
+                        <img alt="Image placeholder" src="/static/assets/img/theme/default-user-profile-picture_hvoncb.png">
+                        {% endif %}
+                      </a>
+                      <div class="media-body">
+                        <a href="{{ url_for('admin_blueprint.edit_profile', user_id=user.id) }}">
+                        <span class="name mb-0 text-sm">{{ user.username }}</span></a>
+                      </div>
+                    </div>
+                  </th>
+                  <td class="email">
+                    {{ user.email }}
+                  </td>
+                  <td>
+                    <span class="mr-4">
+                      {% if user.country == None %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/> </svg>
+                      {% else %}
+                    <i class="ni ni-world"></i>
+                    <span class="country">{{ user.country }}</span>
+                      {% endif %}
+                    </span>
+                  </td>
+                  <td>
+                    <span class="mr-4">
+                      {% if user.city == None %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/> </svg>
+                      {% else %}
+                    <i class="ni ni-building"></i>
+                    <span class="country">{{ user.city }}</span>
+                    {% endif %}
+                    </span>
+                  </td>
+                  <td class="text-right">
+                    <a class="btn btn-sm btn-icon-only text-light" href="{{ url_for('admin_blueprint.edit_profile', user_id=user.id) }}" role="button" aria-haspopup="true" aria-expanded="false">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6e5dd4" class="bi bi-pen-fill" viewBox="0 0 16 16"> <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/> </svg>
+                      </a>
+                  </td>
+                  <td class="text-right">
+                    <a class="btn btn-sm btn-icon-only text-light" href="{{ url_for('admin_blueprint.delete_user', user_id=user.id) }}" onclick="return confirmDelete(event);" role="button" aria-haspopup="true" aria-expanded="false">  
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16" id="IconChangeColor"> <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" id="mainIconPathAttribute" fill="#dd0700"></path> <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" id="mainIconPathAttribute" fill="#dd0700"></path> </svg>
+                    </a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <!-- Card footer -->
+          <div class="card-footer py-4">
+            <nav aria-label="...">
+              <ul class="pagination justify-content-end mb-0">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <i class="fas fa-angle-left"></i>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <i class="fas fa-angle-right"></i>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include "includes/footer.html" %}
+
+  </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}

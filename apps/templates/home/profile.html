@@ -31,15 +31,23 @@
           <div class="col-lg-3 order-lg-2">
             <div class="card-profile-image">
               <a href="#">
-                <img src="/static/assets/img/theme/team-4.jpg" class="rounded-circle">
+                {% if profile_image_url != None %}
+                <img src="{{ profile_image_url }}" class="rounded-circle">
+                {% else %}
+                <img src="/static/assets/img/theme/default-user-profile-picture_hvoncb.png" class="rounded-circle">
+                {% endif %}
               </a>
             </div>
           </div>
         </div>
         <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
           <div class="d-flex justify-content-between">
-            <a href="{{ url_for('home_blueprint.delete_account') }}" class="btn btn-sm btn-danger  mr-4 " >delete</a>
-            <!--<a href="#" class="btn btn-sm btn-default float-right">Message</a>-->
+            <a href="{{ url_for('home_blueprint.delete_profile',user_id=current_user.id) }}" class="btn btn-sm btn-danger  mr-4 " onclick="return confirmDelete(event);" >delete</a>
+            <form action="{{ url_for('home_blueprint.upload_image') }}" method="POST" enctype="multipart/form-data">
+              <a href="#" class="btn btn-sm btn-default float-right">Edit Profile Image</a>
+              <input type="file" name="image" style="display: none;" id="image-input">
+              <input type="submit" value="Save" style="display: none;" id="save-button">
+            </form>
           </div>
         </div>
         <div class="card-body pt-0">
@@ -56,45 +64,53 @@
     </div>
     <div class="col-xl-8 order-xl-1">
       <div class="card">
+        <form role="form" method="post" action="{{ url_for('home_blueprint.edit_profile') }}">
         <div class="card-header">
           <div class="row align-items-center">
             <div class="col-8">
               <h3 class="mb-0">Edit profile </h3>
             </div>
+            
             <div class="col-4 text-right">
-              <a href="#!" class="btn btn-sm btn-primary">Save</a>
+              {{ form.submit(class="btn btn-sm btn-primary") }}
+              <!--<a href="#!" class="btn btn-sm btn-primary">Save</a>-->
             </div>
           </div>
         </div>
         <div class="card-body">
-          <form>
+          
+            {{ form.hidden_tag() }}
             <h6 class="heading-small text-muted mb-4">User information</h6>
             <div class="pl-lg-4">
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-username">Username</label>
-                    <input type="text" id="input-username" class="form-control" placeholder="Username" value="{{ current_user.username }}">
+                    {{ form.username.label(class="form-control-label") }}
+                    {{ form.username(class="form-control", id="input-username", readonly="readonly",placeholder=current_user.username) }}
+                    
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-email">Email address</label>
-                    <input type="email" id="input-email" class="form-control" placeholder="{{ current_user.email }}">
+                    {{ form.email.label(class="form-control-label") }}
+                    {{ form.email(class="form-control", readonly="readonly",id="input-email",placeholder=current_user.email) }}
+                   
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-first-name">First name</label>
-                    <input type="text" id="input-first-name" class="form-control" placeholder="First name" value="Lucky">
+                    {{ form.firstname.label(class="form-control-label") }}
+                    {{ form.firstname(class="form-control",id="input-first-name",placeholder=current_user.firstname) }}
+                    
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-last-name">Last name</label>
-                    <input type="text" id="input-last-name" class="form-control" placeholder="Last name" value="Jesse">
+                    {{ form.lastname.label(class="form-control-label") }}
+                    {{ form.lastname(class="form-control",id="input-last-name",placeholder=current_user.lastname) }}
+                   
                   </div>
                 </div>
               </div>
@@ -104,30 +120,18 @@
             <h6 class="heading-small text-muted mb-4">Contact information</h6>
             <div class="pl-lg-4">
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-address">Address</label>
-                    <input id="input-address" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                    {{ form.city.label(class="form-control-label") }}
+                    {{ form.city(class="form-control",id="input-city",placeholder=current_user.city) }}
+                   
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-city">City</label>
-                    <input type="text" id="input-city" class="form-control" placeholder="City" value="New York">
-                  </div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-country">Country</label>
-                    <input type="text" id="input-country" class="form-control" placeholder="Country" value="United States">
-                  </div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-country">Postal code</label>
-                    <input type="number" id="input-postal-code" class="form-control" placeholder="Postal code">
+                    {{ form.country.label(class="form-control-label") }}
+                    {{ form.country(class="form-control",id="input-country",placeholder=current_user.country) }}
+                    
                   </div>
                 </div>
               </div>
@@ -137,10 +141,8 @@
             <h6 class="heading-small text-muted mb-4">About me</h6>
             <div class="pl-lg-4">
               <div class="form-group">
-                <label class="form-control-label">About Me</label>
-                <textarea name="tweet" id="textbox" rows="5" class="form-control" maxlenght="200" placeholder="A few words about you ..."></textarea>
-                <!--<span id="char_count">200/200</span>-->
-                <span class="char_count" id="char_count">200/200</span>
+                {{ form.about_me.label(class="form-control-label") }}
+                {{ form.about_me(class="form-control",id="textbox",placeholder="A few words about you ...")}}
               </div>
             </div>
           </form>

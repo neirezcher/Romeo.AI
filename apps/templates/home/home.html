@@ -29,6 +29,7 @@
           </div>
           <!-- Card stats -->
           <div class="row">
+            {% if last_record.criteria == "ssc" %}
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
                 <!-- Card body -->
@@ -57,6 +58,7 @@
                 </div>
               </div>
             </div>
+            {% elif last_record.criteria == "nc" %}
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
                 <!-- Card body -->
@@ -79,12 +81,13 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-chart-pie"></i>--%</span>
+                    <span class="text-success mr-2"><i class="fa fa-chart-pie"></i>100%</span>
                     <span class="text-nowrap">Coverage</span>
                   </p>
                 </div>
               </div>
             </div>
+            {% else %}
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
                 <!-- Card body -->
@@ -107,20 +110,22 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-chart-pie"></i> --%</span>
+                    <span class="text-success mr-2"><i class="fa fa-chart-pie"></i> 100%</span>
                     <span class="text-nowrap">Coverage</span>
                   </p>
                 </div>
               </div>
             </div>
+            {% endif %}
+            <!--
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
-                <!-- Card body -->
+               
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                      <span class="h2 font-weight-bold mb-0">{{ "%0.2f" %(last_record.general_robustness *100) }}%</span>
+                      <span class="h2 font-weight-bold mb-0"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
@@ -130,7 +135,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
@@ -140,12 +145,17 @@
     <div class="container-fluid mt--6">
       <div class="row">
         <div class="col-xl-8">
-          <div class="card bg-default">
+          <div class="card">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
-                  <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
-                  <h5 class="h3 text-white mb-0">Robustness by class</h5>
+                  <h6 class="text-muted text-uppercase ls-1 mb-1">Overview</h6>
+                  <h5 class="h3 mb-0">Robustness by class</h5>
+                  {% if last_record.norm == 'l0'%}
+                  <h6 class="h6 mb-0">Norm L0</h6>
+                  {% else %}
+                  <h6 class="h6 mb-0">Norm L Infinity</h6>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -208,7 +218,12 @@
                   {% for deepconcorun in last_records %}
                   <tr>
                     <th scope="row">
-                      {{ deepconcorun.modelref.filename }}
+                      {% if deepconcorun.state == 'complete'%}
+                      <a href="{{ url_for('home_blueprint.get_report', report_id=deepconcorun._id) }}">{{ deepconcorun.modelref.filename }}</a>
+                      {% else %}
+                      Current testing model
+                      {% endif %}
+
                     </th>
                     <td>
                       {% if deepconcorun.criteria == 'nc' %}

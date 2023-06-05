@@ -11,13 +11,13 @@ from flask_dance.contrib.google import google
 from flask_dance.contrib.github import github
 from apps import db, login_manager
 from apps.authentication import blueprint
-from apps.forms import LoginForm, CreateAccountForm
+from apps.forms import LoginForm, CreateAccountForm,ResetPasswordForm
 from apps.models import User
 from apps.authentication.util import verify_pass,hash_pass
+from apps.admin.sendPw import sendPassword
+from bson import ObjectId
 
-#from authlib.client import OAuth2Session
-#import google.oauth2.credentials
-#import googleapiclient.discovery
+
 
 '''
 @blueprint.route('/')
@@ -31,10 +31,13 @@ def route_default():
         )
     else:
         return render_template("index.html")
-    return redirect(url_for('authentication_blueprint.login'))'''
+    return redirect(url_for('authentication_blueprint.login'))
 
 
 # Login & Registration
+@login_manager.user_loader
+def load_user(user_id):
+     return User.objects(id=ObjectId(user_id)).first()'''
 
 @blueprint.route('/login', methods=['GET', 'POST'])
 def login():
@@ -51,7 +54,7 @@ def login():
         # Check the password
         if user and verify_pass(password, user.password):
 
-            login_user(user)
+            login_user(user, remember=True)
             return redirect(url_for('authentication_blueprint.login'))
 
         # Something (user or pass) is not ok
@@ -105,39 +108,36 @@ def register():
 def logout():
     logout_user()
     return redirect(url_for('authentication_blueprint.login'))
-'''@blueprint.route("/forgot_password/", methods=['GET', 'POST']) 
+@blueprint.route("/forgot-password", methods=['GET', 'POST']) 
 def forgot_password():	
+    form = ResetPasswordForm(request.form)
     if request.method=='GET': 
         #Send the forgot password form		
-        return render_template('forgot_password.html')	
-    elif request.method=='POST': 		
+        return render_template('accounts/resetPassword.html',form=form)	
+    elif request.method=='POST' and form.validate_on_submit(): 		
         #Get the post data		
-        username = request.form.get('username')	
+        email = form.email.data
         #Checks		
         errors = []		
-        if username is None or username=='':			
+        if email is None or email=='':			
             errors.append('Username is required')
-            flash('Username is required',category='danger')		
-        user = User.objects.get_or_404(username=username)				
-        #Generate Random Pass and Set it to User object		
-        import random		
-        s = "abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"		
-        passlen = 16		
-        generated_password = "".join(random.sample(s,passlen ))
-        print(generated_password)		
-        pw_hash = hash_pass(generated_password)
-        user.password = pw_hash		
-        user.save()				
-        #Send Reset Mail		
-        import sendmail		
-        message = sendmail.SendPasswordResetMail(user, generated_password)		
-        print(message)		
-        if message is not None:			
-            return "Password Reset Link has been sent to your Email. "		
-        else:			
-            errors.append("Could Not Send Mail. Try Again Later.")		
-            if len(errors)>0:			
-                return render_template('error.html', errors=errors)'''
+            return flash('Username is required',category='danger'), render_template('accounts/resetPassword.html',form)	
+        user = User.objects.get_or_404(email=email)	
+        if user :			
+            #Generate Random Pass and Set it to User object		
+            import random		
+            s = "abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"		
+            passlen = 16		
+            generated_password = "".join(random.sample(s,passlen ))
+            print(generated_password)		
+            pw_hash = hash_pass(generated_password)
+            user.password = pw_hash		
+            user.save()	
+            sendPassword(email,generated_password)		
+            return redirect(url_for('authentication_blueprint.login'))
+        else:
+            errors.append('Username is required')
+            return flash('user not found',category='danger'), render_template('accounts/resetPassword.html',form)	
 @blueprint.route("/login/google")
 def google_login():
 		#Let flask-dance do its magic

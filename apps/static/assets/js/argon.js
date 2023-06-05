@@ -1108,6 +1108,9 @@ var Scrollbar = (function() {
 	}
 
 })();
+
+
+  
 /*'use strict';
 var deleteObject = {
     deleteFunction: function(objectId) {

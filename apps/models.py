@@ -71,8 +71,15 @@ class User(db.Document, UserMixin):
 
     google_id=db.StringField(unique=True, required=False,sparse=True, index=True)
     github_id=db.StringField(unique=True, required=False,sparse=True, index=True)
+
     list_run=db.ListField(db.ReferenceField('Deepconcorun'))
-   
+    profile_image = db.ImageField(default=None)
+    firstname = db.StringField()
+    lastname = db.StringField()
+    city = db.StringField()
+    country = db.StringField()
+    about_me = db.StringField()
+    role = db.StringField(default='member')
     '''
     def __init__(self, **kwargs):
         for property, value in kwargs.items():
@@ -100,6 +107,7 @@ class ContactUS(db.Document):
     email = db.StringField(required=True, max_length=100)
     message = db.StringField(required=True, max_length=500)
     created_at = db.DateTimeField(default=datetime.now)
+    replied = db.BooleanField(default=False)
 
 
     

@@ -1,0 +1,171 @@
+{% extends 'layouts/base-messages.html' %}	
+		{% block content %}	
+<!--begin::Wrapper-->
+<div class="wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10" id="kt_wrapper">
+    <!--begin::Content-->
+    <div class="content flex-column-fluid" id="kt_content">
+        <!--begin::Toolbar-->
+        <div class="toolbar d-flex flex-stack flex-wrap mb-5 mb-lg-7" id="kt_toolbar">
+            <!--begin::Page title-->
+            <div class="page-title d-flex flex-column py-1">
+                <!--begin::Title-->
+                <h1 class="d-flex align-items-center my-1">
+                    <span class="text-dark fw-bolder fs-1">All Messages</span>
+                    <!--begin::Description-->
+                    <small class="text-muted fs-6 fw-bold ms-1">({{ num_messages }})</small>
+                    <!--end::Description-->
+                </h1>
+                <!--end::Title-->
+                <!--begin::Breadcrumb-->
+				<ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
+					<!--begin::Item-->
+					<li class="breadcrumb-item text-muted">
+						<a href="{{ url_for('home_blueprint.home') }}" class="text-muted text-hover-primary">Home</a>
+					</li>
+					<!--end::Item-->
+					<!--begin::Item-->
+					<li class="breadcrumb-item">
+						<span class="bullet bg-gray-200 w-5px h-2px"></span>
+					</li>
+					<!--end::Item-->
+					<!--begin::Item-->
+				    <li class="breadcrumb-item text-lavende">Contact Us Messages</li>
+				    <!--end::Item-->	
+				</ul>
+				<!--end::Breadcrumb-->
+
+            </div>
+            <!--end::Page title-->
+            
+        </div>
+        <!--end::Toolbar-->
+        <!--begin::Post-->
+        <div class="post" id="kt_post">
+            <!--begin::Questions-->
+            <div class="mb-10">
+                {% for message in messages %}
+                <!--begin::Question-->
+                <div class="mb-0">
+                    <!--begin::Head-->
+                    <div class="d-flex align-items-center mb-4">
+                        <!--begin::Title-->
+                        {% if message.replied %}
+                        <span class="fs-2 fw-bolder text-gray-900 text-hover-primary me-1">{{ message.message }}</span>
+                        {% else %}
+                        <a href="{{ url_for('admin_blueprint.reply_message', message_id=message.id) }}" class="fs-2 fw-bolder text-gray-900 text-hover-primary me-1">{{ message.message }}</a>
+                        {% endif %}
+                        <!--end::Title-->
+                        <!--begin::Icons-->
+                        <div class="d-flex align-items-center">
+                            {% if message.replied %}
+                            <span class="ms-1" data-bs-toggle="tooltip" title="Resolved">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                                <span class="svg-icon svg-icon-success svg-icon-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
+                                        <path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </span>
+                            {% else %}
+                            <span class="ms-1" data-bs-toggle="tooltip" title="In-process">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
+                                <span class="svg-icon svg-icon-warning svg-icon-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
+                                        <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="currentColor" />
+                                        <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </span>
+                            <span class="ms-1" data-bs-toggle="tooltip" title="User replied">
+                                <!--begin::Svg Icon | path: icons/duotune/communication/com010.svg-->
+                                <span class="svg-icon svg-icon-danger svg-icon-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M6 8.725C6 8.125 6.4 7.725 7 7.725H14L18 11.725V12.925L22 9.725L12.6 2.225C12.2 1.925 11.7 1.925 11.4 2.225L2 9.725L6 12.925V8.725Z" fill="currentColor" />
+                                        <path opacity="0.3" d="M22 9.72498V20.725C22 21.325 21.6 21.725 21 21.725H3C2.4 21.725 2 21.325 2 20.725V9.72498L11.4 17.225C11.8 17.525 12.3 17.525 12.6 17.225L22 9.72498ZM15 11.725H18L14 7.72498V10.725C14 11.325 14.4 11.725 15 11.725Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </span>
+                            {% endif %}
+                        </div>
+                        <!--end::Icons-->
+                    </div>
+                    <!--end::Head-->
+                    <!--begin::Foot-->
+                    <div class="d-flex flex-stack flex-wrap">
+                        <!--begin::Author-->
+                        <div class="d-flex align-items-center py-1">
+                            <!--begin::Symbol-->
+                            <div class="symbol symbol-35px me-2">
+                                <div class="symbol-label bg-light-info fs-3 fw-bold text-info text-uppercase">{{ message.name[0] }}</div>
+                            </div>
+                            <!--end::Symbol-->
+                            <!--begin::Name-->
+                            <div class="d-flex flex-column align-items-start justify-content-center">
+                                <span class="text-gray-900 fs-7 fw-bold lh-1 mb-2">{{ message.name }}</span>
+                                {% set time_passed = (current_datetime - message.created_at) %}
+                                {% if (time_passed.seconds % 3600) // 60 == 0 %}
+                                <span class="text-muted fs-8 fw-bold lh-1">Just now</span>
+                                {% elif (time_passed.seconds % 3600) // 60 < 60 %}
+                                <span class="text-muted fs-8 fw-bold lh-1">{{ (time_passed.seconds % 3600) // 60 }} minutes</span>
+                                {% elif time_passed.seconds // 3600 < 24 %}
+                                <span class="text-muted fs-8 fw-bold lh-1">{{ time_passed.seconds // 3600 }} hours</span>
+                                {% else %}
+                                <span class="text-muted fs-8 fw-bold lh-1">{{ time_passed.days }} days</span>
+                                {% endif %}
+                            </div>
+                            <!--end::Name-->
+                        </div>
+                        <!--end::Author-->
+                    </div>
+                    <!--end::Foot-->
+                </div>
+                <!--end::Question-->
+                <!--begin::Separator-->
+                <div class="separator separator-dashed border-gray-300 my-8"></div>
+                <!--end::Separator-->
+                {% endfor %}
+            </div>
+            <!--end::Questions-->
+            <!--begin::Pagination-->
+            <div class="d-flex flex-center mb-0">
+                <a href="#" class="btn btn-icon btn-light btn-active-light-primary h-30px w-30px fw-bold fs-6 mx-2 active">1</a>
+                <!--<a href="#" class="btn btn-icon btn-light btn-active-light-primary h-30px w-30px fw-bold fs-6 mx-2 active">2</a>
+                <a href="#" class="btn btn-icon btn-light btn-active-light-primary h-30px w-30px fw-bold fs-6 mx-2">3</a>
+                <a href="#" class="btn btn-icon btn-light btn-active-light-primary h-30px w-30px fw-bold fs-6 mx-2">4</a>
+                <a href="#" class="btn btn-icon btn-light btn-active-light-primary h-30px w-30px fw-bold fs-6 mx-2">5</a>
+                <span class="text-muted fw-bold fs-6 mx-2">..</span>
+                <a href="#" class="btn btn-icon btn-light btn-active-light-primary h-30px w-30px fw-bold fs-6 mx-2">19</a>-->
+            </div>
+            <!--end::Questions-->
+        </div>
+        <!--end::Post-->
+    </div>
+    <!--end::Content-->
+    <!--begin::Footer-->
+    <div class="footer pt-10 pb-5 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
+        <!--begin::Copyright-->
+        <div class="text-dark order-2 order-md-1">
+            <span class="text-muted fw-bold me-1">2023©</span>
+        </div>
+        <!--end::Copyright-->
+        <!--begin::Menu-->
+        <ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
+            <li class="menu-item">
+                <a href="{{ url_for('home_blueprint.home') }}" target="_blank" class="menu-link ps-2 pe-0">Dashborad</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" target="_blank" class="menu-link px-2">Support</a>
+            </li>
+            
+        </ul>
+        <!--end::Menu-->
+    </div>
+    <!--end::Footer-->
+</div>
+<!--end::Wrapper-->
+{% endblock content %}	

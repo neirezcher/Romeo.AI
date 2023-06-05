@@ -1,0 +1,80 @@
+<!--begin::Aside-->
+<div id="kt_aside" class="aside" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '225px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle" data-kt-sticky="true" data-kt-sticky-name="aside-sticky" data-kt-sticky-offset="{default: false, lg: '1px'}" data-kt-sticky-width="{lg: '225px'}" data-kt-sticky-left="auto" data-kt-sticky-top="94px" data-kt-sticky-animation="false" data-kt-sticky-zindex="95">
+    <!--begin::Aside nav-->
+    <div class="hover-scroll-overlay-y my-5 my-lg-5 w-100 ps-4 ps-lg-0 pe-4 me-1" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_header" data-kt-scroll-wrappers="#kt_aside" data-kt-scroll-offset="5px">
+        <!--begin::Menu-->
+        <div class="menu menu-column menu-active-bg menu-hover-bg menu-title-gray-700 fs-6 menu-rounded w-100" id="#kt_aside_menu" data-kt-menu="true">
+            <!--begin::Heading-->
+            <div class="menu-item">
+                <div class="menu-content pb-2">
+                    <span class="menu-section text-muted text-uppercase fs-7 fw-bolder">Menu</span>
+                </div>
+            </div>
+            <!--end::Heading-->
+            <!--begin::Menu item-->
+            <div class="menu-item">
+                <a href="{{ url_for('home_blueprint.home') }}" class="menu-link d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="16" width="16"><rect width="256" height="256" fill="none"></rect><rect x="32" y="48" width="192" height="144" rx="16" transform="translate(256 240) rotate(180)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></rect><line x1="160" y1="224" x2="96" y2="224" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></line><line x1="32" y1="152" x2="224" y2="152" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></line><line x1="128" y1="192" x2="128" y2="224" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></line></svg>
+                    <span class="menu-title px-2">Dashborad</span>
+                </a>
+            </div>
+            <!--end::Menu item-->
+            <!--begin::Menu item-->
+            <div class="menu-item">
+                <a href="{{ url_for('home_blueprint.list_report') }}" class="menu-link d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#41b5ff" class="bi bi-boxes" viewBox="0 0 16 16"> <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z"/> </svg>
+                    <span class="menu-title px-2">Reports</span>
+                    <span class="menu-badge">{{ num_reports }}</span>
+                </a>
+            </div>
+            <!--end::Menu item-->
+            <!--begin::Menu item-->
+            <div class="menu-item">
+                <a href="{{ url_for('home_blueprint.check_Model') }}" class="menu-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#92e945" class="bi bi-plus-circle" viewBox="0 0 16 16"> <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/> <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/> </svg>
+                    <span class="menu-title px-2">Run a test</span>
+                </a>
+            </div>
+            <!--end::Menu item-->
+            <!--begin::Menu item-->
+            <div class="menu-item">
+                <a href="{{ url_for('home_blueprint.edit_profile') }}" class="menu-link d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffc70b" class="bi bi-person-fill" viewBox="0 0 16 16"> <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/> </svg>
+                    <span class="menu-title px-2">Profile</span>
+                </a>
+            </div>
+            <!--end::Menu item-->
+            <!--begin::Menu item-->
+            <div class="menu-item">
+                <a href="{{ url_for('admin_blueprint.users') }}" class="menu-link d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#7a6ad8" class="bi bi-people-fill" viewBox="0 0 16 16"> <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/> <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/> <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/> </svg>
+                    <span class="menu-title px-2">Members</span>
+                    <span class="menu-badge">{{ num_members }}</span>
+                </a>
+            </div>
+            <!--end::Menu item-->
+            <!--begin::Menu item-->
+            <div class="menu-item">
+                <a href="{{ url_for('admin_blueprint.all_messages') }}" class="menu-link d-flex active">
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" zoomAndPan="magnify" viewBox="0 0 30 30.000001" height="20" preserveAspectRatio="xMidYMid meet" version="1.0" id="IconChangeColor"><defs><clipPath id="id1"><path d="M 3.460938 6.5625 L 26.539062 6.5625 L 26.539062 24.707031 L 3.460938 24.707031 Z M 3.460938 6.5625 " clip-rule="nonzero" id="mainIconPathAttribute" fill="#ffffff" stroke="#dd0700" stroke-width="2"></path></clipPath></defs><g clip-path="url(#id1)"><path fill="#ffffff" d="M 24.230469 11.101562 L 15 16.769531 L 5.769531 11.101562 L 5.769531 8.832031 L 15 14.503906 L 24.230469 8.832031 Z M 24.230469 6.5625 L 5.769531 6.5625 C 4.492188 6.5625 3.472656 7.578125 3.472656 8.832031 L 3.460938 22.441406 C 3.460938 23.695312 4.492188 24.707031 5.769531 24.707031 L 24.230469 24.707031 C 25.507812 24.707031 26.539062 23.695312 26.539062 22.441406 L 26.539062 8.832031 C 26.539062 7.578125 25.507812 6.5625 24.230469 6.5625 " fill-opacity="1" fill-rule="nonzero" id="mainIconPathAttribute" stroke="#dd0700"></path></g></svg>
+
+                    <span class="menu-title px-2">Contact Us response</span>
+                    <span class="menu-badge">{{ num_messages }}</span>
+                </a>
+            </div>
+            <!--end::Menu item-->
+            <!--begin::Menu item-->
+            <div class="menu-item">
+                <a href="{{ url_for('authentication_blueprint.logout') }}" class="menu-link d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" id="IconChangeColor" height="19" width="19"><path stroke="#dd0700" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8m4-9-4-4m4 4-4 4m4-4H9" id="mainIconPathAttribute"></path></svg>
+                    <span class="menu-title px-2">Log-out</span>
+                </a>
+            </div>
+            <!--end::Menu item-->
+        </div>
+        <!--end::Menu-->
+    </div>
+    <!--end::Aside nav-->
+</div>
+<!--end::Aside-->

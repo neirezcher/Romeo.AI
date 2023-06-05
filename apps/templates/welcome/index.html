@@ -60,61 +60,44 @@
       <div class="row">
         <div class="col-lg-6 offset-lg-1">
           <div class="accordion" id="accordionExample">
+            {% for fqa in data['FQA'] %}
+            
             <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Where shall we begin?
+              {%  if fqa['id'] == 'headingOne' %}
+              <h2 class="accordion-header" id="{{ fqa['id'] }}">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ fqa['collapse'] }}" aria-expanded="true" aria-controls="{{ fqa['collapse'] }}">
+                  {{ fqa['question'] }}
                 </button>
               </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div id="{{ fqa['collapse'] }}" class="accordion-collapse collapse show" aria-labelledby="{{ fqa['id'] }}" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+                  {{ fqa['response'] }}
                 </div>
               </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  How do we work together?
+              {% else %}
+              <h2 class="accordion-header" id="{{ fqa['id'] }}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ fqa['collapse'] }}" aria-expanded="false" aria-controls="{{ fqa['collapse'] }}">
+                  {{ fqa['question'] }}
                 </button>
               </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div id="{{ fqa['collapse'] }}" class="accordion-collapse collapse" aria-labelledby="{{ fqa['id'] }}" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+                  {{ fqa['response'] }}
                 </div>
               </div>
+              {% endif %}
+              
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Why SCHOLAR is the best?
-                </button>
-              </h2>
-              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  There are more than one hundred responsive HTML templates to choose from <strong>Template</strong>Mo website. You can browse by different tags or categories.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingFour">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  Do we get the best support?
-                </button>
-              </h2>
-              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  You can also search on Google with specific keywords such as <code>templatemo business templates, templatemo gallery templates, admin dashboard templatemo, 3-column templatemo, etc.</code>
-                </div>
-              </div>
-            </div>
+            
+            {% endfor %}
+            
           </div>
         </div>
         <div class="col-lg-5 align-self-center">
           <div class="section-heading">
             <h6>About Us</h6>
-            <h2>What make us the best academy online?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravid risus commodo.</p>
+            <h2>What is Romeo.AI?</h2>
+            <p>classification models. It focuses on pre-trained models that have been trained on popular benchmarks such as MNIST, Fashion-MNIST, and CIFAR-10. This allows users to evaluate the performance and accuracy of their models on these standard datasets, providing insights and feedback on their CNN classification models.</p>
             <div class="main-button">
               <a href="#">Discover More</a>
             </div>
@@ -133,25 +116,19 @@
               <div class="col-lg-3 col-md-6">
                 <div class="counter">
                   <h2 class="timer count-title count-number" data-to="150" data-speed="1000"></h2>
-                   <p class="count-text ">Happy Students</p>
+                   <p class="count-text ">Happy AI Expert</p>
                 </div>
               </div>
               <div class="col-lg-3 col-md-6">
                 <div class="counter">
                   <h2 class="timer count-title count-number" data-to="804" data-speed="1000"></h2>
-                  <p class="count-text ">Course Hours</p>
+                  <p class="count-text ">Happy Student</p>
                 </div>
               </div>
               <div class="col-lg-3 col-md-6">
                 <div class="counter">
                   <h2 class="timer count-title count-number" data-to="50" data-speed="1000"></h2>
-                  <p class="count-text ">Employed Students</p>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                <div class="counter end">
-                  <h2 class="timer count-title count-number" data-to="15" data-speed="1000"></h2>
-                  <p class="count-text ">Years Experience</p>
+                  <p class="count-text ">Trusted Client</p>
                 </div>
               </div>
             </div>
@@ -167,37 +144,21 @@
       <div class="row">
         <div class="col-lg-7">
           <div class="owl-carousel owl-testimonials">
+            {% for test in data['testimonials'] %}
             <div class="item">
-              <p>“Please tell your friends or collegues about TemplateMo website. Anyone can access the website to download free templates. Thank you for visiting.”</p>
+              <p>"{{ test['opinion'] }}"</p>
               <div class="author">
-                <img src="static/assets/img/welcome/testimonial-author.jpg" alt="">
-                <span class="category">Full Stack Master</span>
-                <h4>Claude David</h4>
+                <span class="category">{{ test['occupation'] }}</span>
+                <h4>{{ test['name'] }}</h4>
               </div>
             </div>
-            <div class="item">
-              <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravid.”</p>
-              <div class="author">
-                <img src="static/assets/img/welcome/testimonial-author.jpg" alt="">
-                <span class="category">UI Expert</span>
-                <h4>Thomas Jefferson</h4>
-              </div>
-            </div>
-            <div class="item">
-              <p>“Scholar is free website template provided by TemplateMo for educational related websites. This CSS layout is based on Bootstrap v5.3.0 framework.”</p>
-              <div class="author">
-                <img src="static/assets/img/welcome/testimonial-author.jpg" alt="">
-                <span class="category">Digital Animator</span>
-                <h4>Stella Blair</h4>
-              </div>
-            </div>
+            {% endfor%}
           </div>
         </div>
         <div class="col-lg-5 align-self-center">
           <div class="section-heading">
             <h6>TESTIMONIALS</h6>
             <h2>What they say about us?</h2>
-            <p>You can search free CSS templates on Google using different keywords such as templatemo portfolio, templatemo gallery, templatemo blue color, etc.</p>
           </div>
         </div>
       </div>
