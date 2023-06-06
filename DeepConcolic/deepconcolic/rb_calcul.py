@@ -23,9 +23,7 @@ def robustness(df,numClasses):
         # report 
             for j in range(numClasses):
                 nbOcc=np.count_nonzero(predict_label==j)
-                #nbOccList.append(nbOcc)
                 heatmap_matrix[i,j]=nbOcc
-                dict_['class '+str(i)].append((j,nbOcc))
               
             '''-------------------------------''' 
         # calculs 
@@ -34,4 +32,4 @@ def robustness(df,numClasses):
             class_robustness['class '+str(i)]=1
     '''-------------------------------''' 
     dnn_robust= np.mean(list(class_robustness.values())) 
-    return dict_,class_robustness,heatmap_matrix,dnn_robust
+    return class_robustness,heatmap_matrix,dnn_robust
