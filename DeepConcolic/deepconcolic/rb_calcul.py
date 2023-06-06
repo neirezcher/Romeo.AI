@@ -15,7 +15,7 @@ def robustness(df,numClasses):
             # extract the list of predicted labels
             predict_label=df2['predicted_label'].values
             '''-------------------------------''' 
-            # determine with classes he failed to classify correctly
+            # determine which classes he failed to classify correctly
             for k in predict_label:
                 if k not in  misclassifiedClasses:
                     misclassifiedClasses.append(k)
