@@ -23,7 +23,7 @@ def robustness(df,numClasses):
         # report 
             for j in range(numClasses):
                 nbOcc=np.count_nonzero(predict_label==j)
-                nbOccList.append(nbOcc)
+                #nbOccList.append(nbOcc)
                 heatmap_matrix[i,j]=nbOcc
                 dict_['class '+str(i)].append((j,nbOcc))
               
