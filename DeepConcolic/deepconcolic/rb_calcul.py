@@ -1,11 +1,9 @@
 import numpy as np
 def robustness(df,numClasses):
-    dict_={}
     class_robustness={}
     heatmap_matrix=np.zeros((numClasses,numClasses), dtype=int)
     # skim all classes
     for i in range(numClasses):
-        dict_['class '+str(i)]=[]
         nbOccList=[]
         misclassifiedClasses=[]
         # if the class failed to pass the test
