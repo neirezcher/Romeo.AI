@@ -18,7 +18,7 @@ def robustness(df,numClasses):
                 if k not in  misleadingClasses:
                     misleadingClasses.append(k)
         # report 
-            for j in range(misleadingClasses):
+            for j in misleadingClasses:
                 nbOcc=np.count_nonzero(predict_label==j)
                 heatmap_matrix[i,j]=nbOcc
         # calculs 
