@@ -52,7 +52,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [P
 $ git clone https://github.com/neirezcher/Romeo.AI.git
 
 # Go into the repository
-$ cd romeoAI
+$ cd RomeoAI
 
 # Activate your programming environment if you haven’t already
 $ source env/bin/activate
