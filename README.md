@@ -15,7 +15,7 @@
 <p align="center">
   <a href="#overview">Overview</a> •
   <a href="#Technologies">Technologies</a> •
-  <a href="#getting-started">How To Use</a> •
+  <a href="#getting-started">Getting Started</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#license">License</a>
 </p>
