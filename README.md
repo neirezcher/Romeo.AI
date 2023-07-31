@@ -28,7 +28,7 @@ Romeo.AI is an application designed to evaluate the robustness of Convolutional 
 With the increasing complexity of deep learning models and their applications in critical domains like autonomous vehicles, healthcare, and finance, it has become imperative to assess the robustness of these models against potential adversarial attacks, noisy data, and other challenging conditions. Romeo.AI empowers users to gain valuable insights into their CNN models' strengths and weaknesses, making it an essential tool in the machine learning development pipeline.
 
 ## Technologies
-![Example Image](https://drive.google.com/file/d/1Wybw-Mfqf1rfzXOBVyDMZi2AYUhMqndF/view?usp=sharing)
+![Example Image](https://drive.google.com/uc?id=1Wybw-Mfqf1rfzXOBVyDMZi2AYUhMqndF)
 The core components of this software:
     - Python Flask Application
     - MongoDB Cloud Database
